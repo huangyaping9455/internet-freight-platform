@@ -93,7 +93,7 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     }
 
     @ResponseResult
-    @PutMapping
+    @PutMapping("/{id}")
     @ApiOperation(value = "更新数据")
     public R update(@RequestBody R entity) {
         return getService().update(entity);
@@ -110,9 +110,9 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     }
 
     @ResponseResult
-    @DeleteMapping("/delById")
+    @DeleteMapping
     @ApiOperation(value = "通过id删除,传入id")
-    public void delById(ID id) {
+    public void delById(@PathVariable("id") ID id) {
         getService().deleteById(id);
 
     }
