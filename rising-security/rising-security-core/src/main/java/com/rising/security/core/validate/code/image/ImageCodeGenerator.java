@@ -3,6 +3,7 @@ package com.rising.security.core.validate.code.image;
 import com.rising.security.core.properties.RisingSecurityProperties;
 import com.rising.security.core.validate.code.ValidateCodeGenerator;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
 

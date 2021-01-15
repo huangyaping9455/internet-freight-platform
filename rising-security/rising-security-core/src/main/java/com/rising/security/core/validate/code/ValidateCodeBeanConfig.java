@@ -28,6 +28,7 @@ public class ValidateCodeBeanConfig {
     //而是自己实现一套逻辑覆盖掉我们的逻辑------》实际开发中这叫“增量开发”
 
     //记录一个问题---------------------------------------之后会慢慢去研究----------------------------------------
+
     /***
      * 其实我还一直有一个疑惑----》
      *   比如说进行认证成功的代码开发时，只要我们实现AuthenticationSuccessHandler接口，当认证成功后就会走我们定义的
@@ -38,8 +39,7 @@ public class ValidateCodeBeanConfig {
      */
     //记录一个问题---------------------------------------之后会慢慢去研究------------------------------------------
     @Bean
-    // @ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
-    @ConditionalOnMissingBean(ValidateCodeGenerator.class)
+    @ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
     public ValidateCodeGenerator imageValidateCodeGenerator() {
         ImageCodeGenerator codeGenerator = new ImageCodeGenerator();
         codeGenerator.setRisingSecurityProperties(risingSecurityProperties);
