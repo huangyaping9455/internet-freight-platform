@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 @Service
@@ -82,6 +83,14 @@ public class InternetCarServiceImpl implements InternetCarService {
 
         }
         internetCarRepository.save(internetCar);
+        return internetCarDto;
+    }
+
+    @Override
+    public InternetCarDto findCarByCondition(InternetCarCondition carCondition) {
+        InternetCar internetCar = internetCarRepository.findOne(new InternetCarSpec(carCondition)).orElse(new InternetCar());
+        InternetCarDto internetCarDto = new InternetCarDto();
+        BeanUtils.copyProperties(internetCar, internetCarDto);
         return internetCarDto;
     }
 

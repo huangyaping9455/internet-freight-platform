@@ -21,4 +21,13 @@ public class InternetCarController extends BaseController<InternetCar, InternetC
     public MeetBaseService<InternetCar, InternetCarDto, InternetCarCondition, String> getService() {
         return internetCarService;
     }
+
+
+    @ResponseResult
+    @ApiOperation(value = "根据条件查询车辆信息")
+    @GetMapping("/getCarByCondition")
+    public InternetCarDto getCarByCondition(InternetCarCondition carCondition) {
+        return internetCarService.findCarByCondition(carCondition);
+
+    }
 }
