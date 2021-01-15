@@ -1,11 +1,13 @@
 package com.rising.common.web.base;
 
+import com.rising.common.support.BaseSpecification;
 import com.rising.common.support.Domain2InfoConverter;
 import com.rising.common.support.QueryResultConverter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 描述：满足基本的服务
@@ -158,7 +160,7 @@ public interface MeetBaseService<T, R, C, ID> extends Domain2InfoConverter<T, R>
      * @param pageable  可分页
      * @return {@link Page<T> }
      */
-     Page<R> findPageByCondition(C condition, Pageable pageable);
+    Page<R> findPageByCondition(C condition, Pageable pageable);
 
 
     /**

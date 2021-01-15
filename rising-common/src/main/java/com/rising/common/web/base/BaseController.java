@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -58,7 +59,7 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     @ResponseResult
     @GetMapping(value = "/getOneById")
     @ApiOperation(value = "通过id获取")
-    public R getOneById( ID id) throws Exception {
+    public R getOneById(ID id) throws Exception {
         return getService().get(id);
     }
 
@@ -105,6 +106,14 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
         for (ID id : ids) {
             getService().deleteById(id);
         }
+
+    }
+
+    @ResponseResult
+    @DeleteMapping("/delById")
+    @ApiOperation(value = "通过id删除,传入id")
+    public void delById(ID id) {
+        getService().deleteById(id);
 
     }
 }
