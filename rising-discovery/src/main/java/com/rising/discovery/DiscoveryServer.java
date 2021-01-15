@@ -5,12 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
- * 描述:注册发现服务中心
- *
- * @author 李启云
- * @ProjectName meet
- * @ClassName: ApplicationEureka
- * @date 2020/5/8 11:40
+ * 描述：发现服务器
+ * <p>
+ * 作者：李启云
+ * 日期：2021-01-15
  */
 
 @SpringBootApplication
