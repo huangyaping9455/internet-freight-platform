@@ -1,0 +1,75 @@
+@startuml
+
+scale 1.3
+actor "用户客户端" as User #005bbb
+participant "网关" as Gateway #43CF5B
+participant "认证服务" as Authentication #F47022
+participant "权限服务" as Permission #fefb67
+participant "物流通" as 物流通 #00c200
+participant "网络货运平台" as 平台 #fefb67
+participant "交通厅接口" as 交通厅 #00c200
+
+
+activate Authentication #F47022
+User ---> Authentication: <font color=red>1.请求认证</font>
+Authentication ----> Authentication:<font color =red>2.完成认证</font>
+activate Authentication #F47022
+Authentication--> Gateway:3.返回令牌
+activate Gateway #43CF5B
+activate User #005bbb
+Gateway --> User: 4.发送令牌给客户端应用
+activate Gateway #1BAAFF
+User --->Gateway :5.携带令牌发送请求
+Gateway -->Gateway :6.校验令牌
+
+activate Permission #fefb67
+Gateway -->Permission :7.校验权限
+
+activate 物流通 #00c200
+activate 平台 #fefb67
+物流通 ----->物流通:<font color =red>1.添加车辆</font>
+物流通 -->平台:<font color =blue>上传车辆信息</font>
+平台 --> 平台:审核
+activate 交通厅 #00c200
+平台 --> 交通厅:上传
+
+activate 物流通 #00c200
+activate 平台 #fefb67
+物流通 -->物流通:<font color =red>2.添加司机</font>
+物流通 -->平台:<font color =blue>上传司机信息</font>
+平台 --> 平台:审核
+activate 交通厅 #00c200
+平台 --> 交通厅:上传
+
+activate 物流通 #00c200
+activate 平台 #fefb67
+物流通 -->物流通:<font color =red>3.添加货物</font>
+物流通 -->平台:<font color =blue>上传货物信息</font>
+平台 --> 平台:审核
+activate 交通厅 #00c200
+平台 --> 交通厅:上传
+
+activate 物流通 #00c200
+activate 平台 #fefb67
+物流通 -->物流通:<font color =red>4.调派</font>
+物流通 -->平台:<font color =blue>上传调派信息</font>
+平台 --> 平台:审核
+activate 交通厅 #00c200
+平台 --> 交通厅:上传
+
+activate 物流通 #00c200
+activate 平台 #fefb67
+物流通 -->物流通:<font color =red>5.清分</font>
+物流通 -->平台:<font color =blue>上传清分信息</font>
+平台 --> 平台:打款结算
+activate 交通厅 #00c200
+平台 --> 交通厅:上传
+
+Gateway   --->物流通:访问物流通
+
+
+
+
+
+@enduml
+

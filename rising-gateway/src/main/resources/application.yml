@@ -1,0 +1,70 @@
+zuul:
+  routes:
+    user:
+      url: http://localhost:9090
+    uaa:
+      url: http://localhost:8888
+    order:
+      url: http://localhost:10000
+    price:
+      url: http://localhost:11000
+    internetfreight:
+      url: http://localhost:30000
+  sensitive-headers:
+
+spring:
+  application:
+    name: gateway-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.2.88:3306/rising_authority?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+  redis:
+    database: 8
+server:
+  port: 8800
+security:
+  oauth2:
+    client:
+      client-id: gateway-server
+      client-secret: 123456
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:8888/oauth/token_key
+eureka:
+  client:
+    registerWithEureka: true #服务注册开关
+    fetchRegistry: true #服务发现开关
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址，多个中间用逗号分隔
+      defaultZone: ${EUREKA_SERVER:http://localhost:20000/eureka/}
+  instance:
+    prefer-ip-address:  true  #将自己的ip地址注册到Eureka服务中
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port} #指定实例id
+
+meet:
+  zuul:
+    swaggerDocument: |-
+      [
+      {
+        "name": "车辆管理",
+        "location": "/car/v2/api-docs",
+        "version": "1.0"
+      },
+      {
+        "name": "保险管理",
+        "location": "/insurance/v2/api-docs",
+        "version": "1.0"
+      },
+      {
+        "name": "借款管理",
+        "location": "/loan/v2/api-docs",
+        "version": "1.0"
+      },
+      {
+        "name": "提醒管理",
+        "location": "/remind/v2/api-docs",
+        "version": "1.0"
+      }
+      ]

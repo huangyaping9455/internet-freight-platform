@@ -1,0 +1,21 @@
+@startuml
+
+start
+
+if (登陆) then (no)
+elseif (超级用户) then (yes)
+
+elseif (condition C) then (yes)
+  :资源(菜单);
+elseif (condition D) then (yes)
+  :组织机构(公司);
+elseif (condition D) then (yes)
+  :组织机构(公司);
+
+else (nothing)
+:Text else;
+
+endif
+
+stop
+@enduml

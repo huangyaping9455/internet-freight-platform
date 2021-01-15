@@ -1,0 +1,66 @@
+server:
+  port: 30000
+
+security:
+  oauth2:
+    client:
+      client-id: freight-service
+      client-secret: 123456
+    resource:
+      jwt:
+        key-uri: http://127.0.0.1:8888/oauth/token_key
+
+spring:
+  application:
+    name: freight-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/internet_freight?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      ##打印sql语句时是否格式化
+      #spring.jpa.properties.hibernate.format_sql=true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        format_sql: true
+
+
+
+#  cloud:
+#    sentinel:
+#      transport:
+#        port: 8719
+#        dashboard: localhost:8082
+#
+#sentinel:
+#  zookeeper:
+#    address: 127.0.0.1:2181
+#    path: /sentinel_rule_config
+
+#management:
+#  endpoints:
+#    promethus:
+#      enable: true
+#    web:
+#      exposure:
+#        include:
+#        - prometheus
+#        - info
+#        - health
+eureka:
+  client:
+    registerWithEureka: true #服务注册开关
+    fetchRegistry: true #服务发现开关
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址，多个中间用逗号分隔
+      defaultZone: ${EUREKA_SERVER:http://localhost:20000/eureka/}
+  instance:
+    prefer-ip-address:  true  #将自己的ip地址注册到Eureka服务中
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port} #指定实例id

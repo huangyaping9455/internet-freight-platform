@@ -1,0 +1,93 @@
+
+package com.rising.gateway.security;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.web.access.ExceptionTranslationFilter;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
+import org.springframework.security.web.context.SecurityContextPersistenceFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+
+/**
+ * 网关安全配置
+ * 资源服务适配器
+ *
+ * @author liqiyun
+ * @date 2020/08/19
+ */
+@Configuration
+@EnableResourceServer
+public class GatewaySecurityConfig extends ResourceServerConfigurerAdapter {
+
+
+    @Autowired
+    private GatewayAccessDeniedHandler accessDeniedHandler;
+
+    @Autowired
+    private GatewayAuthenticationEntryPoint authenticationEntryPoint;
+    @Autowired
+    private GatewayWebSecurityExpressionHandler gatewayWebSecurityExpressionHandler;
+
+    @Override
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+        resources
+                .authenticationEntryPoint(authenticationEntryPoint)
+                .accessDeniedHandler(accessDeniedHandler)
+                .expressionHandler(gatewayWebSecurityExpressionHandler);
+    }
+
+    @Override
+    public void configure(HttpSecurity http) throws Exception {
+        http.
+                addFilterBefore(corsFilter(), ChannelProcessingFilter.class)
+                .addFilterBefore(new GatewayRateLimitFilter(), SecurityContextPersistenceFilter.class)
+                .addFilterBefore(new GatewayAuditLogFilter(), ExceptionTranslationFilter.class)
+                .csrf().disable()
+                .authorizeRequests()
+
+                .antMatchers(
+                        "/uaa/code/**",
+                        "/uaa/authentication/**",
+                        "/uaa/connect/**",
+                        "/**/*.html",
+                        // swagger start
+                        "/swagger-ui.html",
+                        "/swagger-resources/**",
+                        "/images/**",
+                        "/webjars/**",
+                        "/v2/api-docs",
+                        "/configuration/ui",
+                        "/configuration/security"
+                        // swagger end
+
+
+                )
+                .permitAll()
+                .anyRequest()
+                .access("#permissionService.hasPermission(request, authentication)");
+    }
+
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin("*");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        config.addExposedHeader("x-auth-token");
+        config.addExposedHeader("x-total-count");
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
+    }
+
+}

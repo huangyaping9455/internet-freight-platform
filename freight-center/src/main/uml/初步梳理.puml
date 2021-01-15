@@ -1,0 +1,80 @@
+@startuml
+
+scale 1.5
+actor "用户" as User #005bbb
+participant "平台" as platform #43CF5B
+participant "用户信息" as userInfo #F47022
+participant "订单信息" as order #fefb67
+participant "调派明细" as dispatch #00c200
+participant "结算明细" as settlement #00c200
+participant "省厅接口" as interface #00c200
+
+activate userInfo #F47022
+User ---> platform: 1.注册登陆
+
+activate platform #43CF5B
+activate User #005bbb
+User --> userInfo: 2.用户完善信息
+activate userInfo #F47022
+userInfo --> userInfo:2.1.完善个人(公司信息)上传附件
+activate userInfo #F47022
+userInfo --> userInfo:2.2.添加司机信息
+activate userInfo #F47022
+userInfo --> userInfo:2.3.添加车辆信息
+
+activate userInfo #F47022
+userInfo --> interface:2.4.上传车辆/司机信息
+
+userInfo --> platform:4.平台审核
+activate platform #43CF5B
+platform --> platform:4.1.审核(车辆-司机)/评估
+
+activate platform #1BAAFF
+platform --->User :5.发货
+activate User #005bbb
+User -->order:5.1.托运人
+activate order #fefb67
+order-->order:5.1.1.托运人发货
+activate order #fefb67
+order-->order:5.1.2.生成合同信息
+
+activate order #fefb67
+order-->order:5.1.3.全程监控
+
+activate order #fefb67
+order-->order:5.1.4.投诉/咨询
+
+activate User #005bbb
+User -->order:5.2.实际承运人
+activate order #fefb67
+order-->order:5.2.1.实际承运人接货
+activate order #fefb67
+order-->order:5.2.2.实际承运人调派
+activate order #fefb67
+order-->dispatch:6.调派
+activate dispatch #00c200
+dispatch-->dispatch:6.1.添加调派明细
+
+activate dispatch #00c200
+dispatch-->dispatch:6.2.回单
+activate dispatch #00c200
+dispatch-->interface:6.3.上传电子运单
+
+activate dispatch #00c200
+dispatch-->dispatch:6.4.结算
+activate dispatch #00c200
+dispatch -->settlement:7.生成结算明细
+activate settlement #00c200
+settlement-->settlement:7.1:选择结算方式
+activate settlement #00c200
+settlement-->settlement:7.2:添加结算明细
+activate settlement #00c200
+settlement-->interface:7.3:上传资金流水
+
+activate settlement #00c200
+settlement-->order:8.在线评价
+
+
+
+
+@enduml

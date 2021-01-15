@@ -1,0 +1,41 @@
+@startuml
+
+scale 2.5
+header
+<font color=blue>说明:</font>
+<font color=blue>4.金融支付《微信扫码支付》
+endheader
+
+actor "用户" as User #005bbb
+participant "网站" as web #43CF5B
+participant "后端服务" as service #F47022
+participant "微信平台" as wechat #fefb67
+
+
+activate User #005bbb
+User [#blue]-> web: 1.点击支付
+
+activate web #43CF5B
+web [#blue]->service:1.1.请求支付
+activate service #F47022
+service [#blue]->wechat:1.2.创建订单
+activate wechat #fefb67
+wechat [#blue]->wechat:1.3.生成订单
+wechat [#blue]-->service:1.4.返回订单信息
+activate service #F47022
+service [#blue]-->web:1.5.生成二维码
+
+activate User #005bbb
+activate wechat #fefb67
+User [#blue]->wechat:2.查询支付订单
+wechat [#blue]-->User:2.1.返回支付订单
+activate User #005bbb
+User [#blue]->User :2.2.确认
+User [#blue]->wechat:3.输入密码
+activate wechat #fefb67
+wechat [#blue]->wechat:3.1.扣款
+activate service #F47022
+wechat [#blue]-->service:3.2.支付结果
+wechat [#blue]-->User:3.2.支付结果
+
+@enduml

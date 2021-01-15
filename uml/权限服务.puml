@@ -1,0 +1,35 @@
+@startuml
+
+scale 1.8
+start
+:登陆请求;
+
+if (超级用户) then (no)
+:组织机构;
+    if (菜单资源) then (no)
+:2;
+        if (continue processing?) then (no)
+        stop
+
+    endif
+    if (isPost?) then (yes)
+:3;
+    else (no)
+:4;
+    endif
+:5;
+  endif
+else (true)
+endif
+if (do redirect?) then (yes)
+:6;
+else
+  if (do forward?) then (yes)
+:7;
+  else (no)
+:8;
+endif
+endif
+stop
+@enduml
+
