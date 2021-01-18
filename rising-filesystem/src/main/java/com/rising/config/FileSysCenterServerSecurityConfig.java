@@ -9,15 +9,15 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 
 /**
- * 描述信息：安全配置
+ * 描述：文件系统中心服务器安全配置
  *
  * @see ResourceServerConfigurerAdapter
- * 创建作者：李启云
- * 创建日期：2020-08-28
+ * 作者：李启云
+ * 日期：2021-01-18
  */
 
 @Configuration
-public class ActuatorSecurityConfig extends ResourceServerConfigurerAdapter {
+public class FileSysCenterServerSecurityConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
