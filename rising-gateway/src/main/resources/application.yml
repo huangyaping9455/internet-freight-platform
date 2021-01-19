@@ -11,7 +11,7 @@ zuul:
     internetfreight:
       url: http://localhost:30000
     filesystem:
-      url: http://localhost:20000
+      url: http://localhost:40000
   sensitive-headers:
 
 spring:
@@ -19,7 +19,7 @@ spring:
     name: gateway-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.2.88:3306/rising_authority?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/rising_authority?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
     username: root
     password: root
   redis:
