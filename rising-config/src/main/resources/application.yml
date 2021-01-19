@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:  #https://gitee.com/ynzl/internet-freight-platform.git
-          uri: https://gitee.com/ynzl/internet-freight-platform/rising-config
+          uri: https://gitee.com/ynzl/internet-freight-platform
           username: 18788523442
           password: 3344520myy
 
