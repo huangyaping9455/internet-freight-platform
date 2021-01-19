@@ -5,7 +5,7 @@ spring:
     name: uaa
   cloud:
     config:
-      profile: dev
+      profile: prod
       uri: http://localhost:8400/
-      name: uaa-dev
+      name: uaa
       label: master
