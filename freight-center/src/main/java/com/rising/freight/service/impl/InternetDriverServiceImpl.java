@@ -60,7 +60,7 @@ public class InternetDriverServiceImpl implements InternetDriverService {
     public InternetDriver rConvertT(InternetDriverDto domainDto) {
 
         InternetDriver driver = new InternetDriver();
-        BeanUtils.copyProperties(driver, domainDto);
+        BeanUtils.copyProperties(domainDto, driver);
         return driver;
     }
 
