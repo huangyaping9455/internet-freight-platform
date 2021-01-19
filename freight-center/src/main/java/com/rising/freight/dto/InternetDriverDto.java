@@ -39,6 +39,8 @@ public class InternetDriverDto {
     private String telephone;
     // 备注	0..1	an..256	选填。
     private String remark;
+    //驾驶证
+    private String driverLicense;
 
 
 }
