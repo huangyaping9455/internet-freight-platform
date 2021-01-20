@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class InternetCarCondition {
     private String vehicleNumber;
+    private String owner;
 
 }

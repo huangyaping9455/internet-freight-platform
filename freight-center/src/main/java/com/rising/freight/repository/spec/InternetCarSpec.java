@@ -16,6 +16,7 @@ public class InternetCarSpec extends BaseSpecification<InternetCar, InternetCarC
     @Override
     protected void addCondition(DynamicQueryWrapper<InternetCar> queryWrapper) {
         addLikeCondition(queryWrapper, "vehicleNumber");
+        addLikeCondition(queryWrapper, "owner");
 
     }
 }
