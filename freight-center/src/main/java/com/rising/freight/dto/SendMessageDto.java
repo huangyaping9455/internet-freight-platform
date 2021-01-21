@@ -42,10 +42,10 @@ public class SendMessageDto implements Serializable {
     // 发证机关	0..1	an..128	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
     private String issuingOrganizations;
     // 注册日期	0..1	n8	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。YYYYMMDD
-//    @JsonSerialize(using = CustomDateFormlessChange.class)
+
     private String registerDate;
     // 发证日期	0..1	n8	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。YYYYMMDD
-//    @JsonSerialize(using = CustomDateFormlessChange.class)
+
     private String issueDate;
     /**
      * 代 码 能源类型 说明
