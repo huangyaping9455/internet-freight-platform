@@ -15,16 +15,12 @@ import java.math.BigDecimal;
  * 作者：李启云
  * 日期：2020-12-31
  */
-
+@Entity
+@Table(name = "internet_goods_info")
 @Getter
 @Setter
 @Comment("货物信息")
 public class ShippingGoods extends Model{
-
-//
-//    @ApiModelProperty(value = "车辆所有驾驶员")
-//    @OneToMany(mappedBy = "shippingGoodsInfo", cascade = CascadeType.REMOVE)
-//    private Set<CarInfoGoods> goods = new HashSet<>();
 
     // 货物名称	1..1	an..512	必填。
     @Column(length = 512)
