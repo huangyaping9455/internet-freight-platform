@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Service
 @Transactional
 public class InternetDriverServiceImpl implements InternetDriverService {
@@ -53,7 +54,7 @@ public class InternetDriverServiceImpl implements InternetDriverService {
     public List<InternetDriverDto> findListByCondition(InternetDriverCondition condition) {
         List<InternetDriver> internetDriverList = driverRepository.findAll(new InternetDriverSpec(condition));
 
-        return QueryResultConverter.convert(internetDriverList,getResponseClazz());
+        return QueryResultConverter.convert(internetDriverList, getResponseClazz());
     }
 
     @Override

@@ -1,27 +1,21 @@
-package com.rising.freight.domain;
+package com.rising.freight.dto;
 
 import com.rising.common.web.annotation.Comment;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
- * 描述：资金流水业务表
- * 创建时间：2020-03-19 13:45:22
- * 创建作者：罗毅涵
+ * 描述：
+ * 网络货运平台资金流水数据存储
+ *
+ * @see Serializable
+ * 作者：曾庆玲
+ * 日期：2021-01-21
  */
-@Table(name = "internet_financial")
-@Entity
-@Getter
-@Setter
-@Comment("资金流水表")
-public class Financial extends Model {
-    private static final long serialVersionUID = 1L;
-
-
+@Data
+public class FinancialDto {
     //单证号	1…1	an..35	必填，本资金流水单号。
     @Comment("资金流水单号")
     private String documentNumber;
@@ -47,15 +41,4 @@ public class Financial extends Model {
     private Integer vehiclePlateColorCode;
     // 备注
     private String remark;
-    // 总金额	1..1	n..18,3	该笔运输实际发生费用，含燃油、路桥费和实际支付金额。
-//    @JsonSerialize(using = CustomBigDecimalThreeChange.class)
-//    private BigDecimal totalMonetaryAmount;
-    // 运单列表
-//    @OneToMany(mappedBy = "financial")
-//    private Set<FinancialShippingNote> shippingNoteList ;
-//    // 财务列表
-//    @OneToMany
-//    private Set<FinancialStatement> financiallist;
-
-
 }
