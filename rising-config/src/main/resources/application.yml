@@ -13,11 +13,11 @@ spring:
 
 
   rabbitmq:
-    host: 192.168.2.88
+    host: 139.155.138.18
     port: 15672
     virtual-host: rising-config
-    username: lixingwu
-    password: 123456
+    username: admin
+    password: rabbitmq@admin
     connection-timeout: 10000
     template:
       mandatory: true
