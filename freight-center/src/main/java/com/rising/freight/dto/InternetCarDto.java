@@ -88,7 +88,7 @@ public class InternetCarDto implements Serializable {
     // 挂车牌照号	0..1	an..35	选填。
     private String trailerVehiclePlateNumber;
     // 备注	0..1	an..256	选填。
-//    private String remark;
+    private String remark;
 
     public void addDriver(InternetDriver driver) {
         if (driver != null) {
