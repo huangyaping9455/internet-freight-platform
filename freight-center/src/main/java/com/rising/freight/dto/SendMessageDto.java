@@ -211,9 +211,6 @@ public class SendMessageDto implements Serializable {
     //单证号	1…1	an..35	必填，本资金流水单号。
     private String documentNumber;
 
-    // 总金额	1..1	n..18,3	该笔运输实际发生费用，含燃油、路桥费和实际支付金额。
-//    @JsonSerialize(using = CustomBigDecimalThreeChange.class)
-//    private BigDecimal totalMonetaryAmount;
     // 运单列表
     // 托运单号	1..1	an..20	必填，对应运单技术规范中第 2 项。
 
