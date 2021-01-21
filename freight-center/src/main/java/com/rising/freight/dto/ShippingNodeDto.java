@@ -1,57 +1,42 @@
-package com.rising.freight.domain;
+package com.rising.freight.dto;
 
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
+import com.rising.freight.domain.InternetDriver;
+import lombok.Data;
+
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * 描述：电子运单实体类
+ * 描述：
+ * 网络货运平台车辆基础数据存储
  *
  * @see Serializable
  * 作者：李启云
  * 日期：2020-12-31
  */
-@Entity
-@Table(name = "internet_order_info")
-@Getter
-@Setter
-public class ShippingNode extends Model {
+@Data
+public class ShippingNodeDto implements Serializable {
+    private String id;
 
+//    private Set<ConsignorInfo> consignorInfo = new HashSet<>();
 
-//
-//    // 托运人信息
-//    @OneToOne
-//    @JoinColumn(name="consignorInfoId",referencedColumnName="id")
-//    private ShippingConsignorInfo consignorInfo;
-//    // 收货方信息
-//    @OneToOne
-//    @JoinColumn(name="consigneeInfoId",referencedColumnName="id")
-//    private ShippingConsigneeInfo consigneeInfo;
-//    // 实际承运人信息
-//    @OneToOne
-//    @JoinColumn(name="actualCarrierInfoId",referencedColumnName="id")
-//    private ShippingActualCarrierInfo actualCarrierInfo;
-//    // 保险信息
-//    @OneToOne
-//    @JoinColumn(name="insuranceInformationId",referencedColumnName="id")
-//      private ShippingInsuranceInformation insuranceInformation;
+//    private Set<ConsigneeInfo> consigneeInfo = new HashSet<>();
 
- //   // 车辆信息
-    //    @OneToOne
-//    @JoinColumn(name="car_id",referencedColumnName="id")
-//    private InternetCar vehicleInfo;
-//    // 司机信息
-//    @OneToOne
-//    @JoinColumn(name="driver_id",referencedColumnName="id")
-//      private InternetDriver driver;
-    //    // 货物信息
-//    @OneToOne
-    //    @JoinColumn(name="goods_id",referencedColumnName="id")
-//      private ShippingGoods goodsInfo;
+//    private Set<ActualCarrierInfo> actualCarrierInfo = new HashSet<>();
+
+//      private Set<InsuranceInformation> insuranceInformation = new HashSet<>();
+
+//    private Set<VehicleInfo> vehicleInfo = new HashSet<>();
+
+//      private Set<Driver> driver = new HashSet<>();
+
+//      private Set<GoodsInfo> goodsInfo = new HashSet<>();
 
     // 原始单号 必填，上游企业委托运输单号。 an..35
     private String originalDocumentNumber;

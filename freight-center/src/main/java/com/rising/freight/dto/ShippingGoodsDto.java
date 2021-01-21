@@ -1,26 +1,28 @@
-package com.rising.freight.domain;
+package com.rising.freight.dto;
+
 
 import com.rising.common.web.annotation.Comment;
-import lombok.Getter;
-import lombok.Setter;
+import com.rising.freight.domain.InternetDriver;
+import lombok.Data;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * 描述：运输货物信息
- *货物信息（用于电子运单货物信息存储）
+ * 描述：
+ * 网络货运平台车辆基础数据存储
+ *
+ * @see Serializable
  * 作者：李启云
  * 日期：2020-12-31
  */
-@Entity
-@Table(name = "internet_goods_info")
-@Getter
-@Setter
-@Comment("货物信息")
-public class ShippingGoods extends Model{
+@Data
+public class ShippingGoodsDto implements Serializable {
+    private String id;
 
     // 货物名称	1..1	an..512	必填。
     @Column(length = 512)
@@ -61,4 +63,5 @@ public class ShippingGoods extends Model{
     // 总件数	0..1	n..8	选填。
     @Column(precision = 8)
     private Integer totalNumberOfPackages;
+
 }
