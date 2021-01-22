@@ -15,8 +15,7 @@ public class ShippingGoodsSpec extends BaseSpecification<ShippingGoods, Shipping
 
     @Override
     protected void addCondition(DynamicQueryWrapper<ShippingGoods> queryWrapper) {
-        addLikeCondition(queryWrapper, "vehicleNumber");
-        addLikeCondition(queryWrapper, "owner");
+        addLikeCondition(queryWrapper, "descriptionOfGoods");
 
     }
 }

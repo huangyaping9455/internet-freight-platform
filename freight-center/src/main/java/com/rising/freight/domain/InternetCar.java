@@ -98,6 +98,13 @@ public class InternetCar extends Model {
     // 备注	0..1	an..256	选填。
     private String remark;
 
+
+    // 行车证	0..1	an..256	选填。
+    private String drivingPermit;;
+    // 驾驶证	0..1	an..256	选填。
+    private String driverLicense;
+
+
     public void addDriver(InternetDriver driver) {
         if (driver != null) {
             internetDrivers.add(driver);

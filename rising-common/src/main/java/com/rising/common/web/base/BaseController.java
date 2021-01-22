@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
@@ -91,11 +90,13 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     public R save(@RequestBody R entity) {
         return getService().save(entity);
     }
-   /* "/{id}"*/
+
+    /* "/{id}"*/
     @ResponseResult
-    @PutMapping()
+    @PutMapping("/{id}")
     @ApiOperation(value = "更新数据")
-    public R update(@RequestBody R entity) {
+    public R update(@RequestBody R entity, @PathVariable("id") String id) {
+
         return getService().update(entity);
     }
 
@@ -110,7 +111,7 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     }
 
     @ResponseResult
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ApiOperation(value = "通过id删除,传入id")
     public void delById(@PathVariable("id") ID id) {
         getService().deleteById(id);
