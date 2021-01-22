@@ -16,7 +16,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.2.88:3306/internet_freight?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/internet_freight?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
   jpa:
@@ -30,12 +30,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  rabbitmq:
-    host: 139.155.138.18
-    port: 5672
-    username: admin
-    password: rabbitmq@admin
-    virtual-host: waybill
+
 
 
 #  cloud:
@@ -69,7 +64,3 @@ eureka:
     prefer-ip-address: true  #将自己的ip地址注册到Eureka服务中
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port} #指定实例id
-logging:
-  level:
-    com:
-      rising: debug

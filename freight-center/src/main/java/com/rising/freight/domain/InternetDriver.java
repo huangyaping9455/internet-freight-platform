@@ -1,6 +1,7 @@
 package com.rising.freight.domain;
 
 
+import com.rising.common.web.annotation.Comment;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,18 +23,21 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@Comment("司机表")
 public class InternetDriver  extends Model{
     private static final long serialVersionUID = 1L;
 
 
     @ManyToMany(mappedBy = "internetDrivers")
+
     private Set<InternetCar> InternetCars = new HashSet<>();
 
 
     @ApiModelProperty(value = "姓名1..1 an..30必填。对应运单技术规范第 35 项")
+    @Comment("司机姓名")
     private String driverName;
 
-    @ApiModelProperty(value = "身份证号	1..1	an..18	必填。对应运单技术规范第 36 项")
+    @ApiModelProperty(value = "驾驶证编号	1..1	an..18	必填。对应运单技术规范第 36 项")
     private String drivingLicense;
     @ApiModelProperty(value = "准驾车型0..1 an..20 使用总质量 4.5 吨及以下普通货运车辆从事普通货物运输经营的驾驶员必填，根据机动车驾驶证填写")
     private String vehicleClass;
@@ -53,6 +57,8 @@ public class InternetDriver  extends Model{
     private String telephone;
     // 备注	0..1	an..256	选填。
     private String remark;
+    //驾驶证
+    private String driverLicense;
 
     public void addCar(InternetCar car) {
         if (car != null) {

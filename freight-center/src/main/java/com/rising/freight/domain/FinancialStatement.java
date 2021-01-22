@@ -1,6 +1,7 @@
 package com.rising.freight.domain;
 
 
+import com.rising.common.web.annotation.Comment;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Comment("财务报表")
 public class FinancialStatement extends Model {
 
     /**

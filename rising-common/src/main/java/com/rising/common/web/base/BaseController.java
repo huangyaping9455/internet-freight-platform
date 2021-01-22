@@ -91,9 +91,9 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     public R save(@RequestBody R entity) {
         return getService().save(entity);
     }
-
+   /* "/{id}"*/
     @ResponseResult
-    @PutMapping("/{id}")
+    @PutMapping()
     @ApiOperation(value = "更新数据")
     public R update(@RequestBody R entity) {
         return getService().update(entity);
