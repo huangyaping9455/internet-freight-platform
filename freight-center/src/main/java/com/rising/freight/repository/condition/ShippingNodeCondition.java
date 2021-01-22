@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class ShippingNodeCondition {
-    private String vehicleNumber;
-    private String owner;
+    private String shippingNoteNumber;
 
 }
