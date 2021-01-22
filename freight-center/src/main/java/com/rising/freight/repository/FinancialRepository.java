@@ -2,7 +2,6 @@ package com.rising.freight.repository;
 
 import com.rising.common.web.base.BaseRepository;
 import com.rising.freight.domain.Financial;
-import com.rising.freight.domain.InternetCar;
 import org.springframework.stereotype.Repository;
 
 /**
