@@ -7,6 +7,7 @@ import com.rising.rbac.domain.Organization;
 import com.rising.rbac.dto.OrganizationInfo;
 import com.rising.rbac.service.OrganizationService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -18,12 +19,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import java.io.IOException;
 
 @Slf4j
 @Service
-
 public class UAAMessageService {
 
     @Autowired
@@ -48,9 +49,9 @@ public class UAAMessageService {
             bindings = {
 
                     @QueueBinding(
-                            value = @Queue(name = "freightCenter.organization.queue"),
-                            exchange = @Exchange(name = "exchange.freightCenter.uaa", type = ExchangeTypes.TOPIC),
-                            key = "key.freightCenter.organization"
+                            value = @Queue(name = "uaa.organization.queue"),
+                            exchange = @Exchange(name = "exchange.wlt.uaa", type = ExchangeTypes.TOPIC),
+                            key = "key.uaa.organization"
                     )
             }
     )
@@ -58,10 +59,9 @@ public class UAAMessageService {
         log.info("AuthorizeMessageService开始处理消息>>>>{}", JSON.toJSONString(message.getBody()));
         OrganizationInfo organizationInfo = objectMapper.readValue(message.getBody(), OrganizationInfo.class);
         OrganizationInfo result = organizationService.findByName(organizationInfo.getName());
-        if (null == result) {
+        if (ObjectUtils.isEmpty(result)) {
             result = organizationService.create(organizationInfo);
         }
-
         log.info("AuthorizeMessageService处理结果>>>>{}", result);
 
     }

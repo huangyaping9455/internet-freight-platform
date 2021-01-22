@@ -58,28 +58,33 @@ public class FreightCenterMessageService {
                                             //   @Argument(name =
                                             //   "x-dead-letter-routing-key", value = "bbbb")
                                     }),
-                            exchange = @Exchange(name = "exchange.freightCenter.wlt", type = ExchangeTypes.TOPIC),
+                            exchange = @Exchange(name = "exchange..wlt.freightCenter", type = ExchangeTypes.TOPIC),
                             key = "key.freightCenter.car"
                     ),
                     @QueueBinding(
                             value = @Queue(name = "freightCenter.driver.queue"),
-                            exchange = @Exchange(name = "exchange.freightCenter.wlt", type = ExchangeTypes.TOPIC),
+                            exchange = @Exchange(name = "exchange..wlt.freightCenter", type = ExchangeTypes.TOPIC),
                             key = "key.freightCenter.driver"
                     ),
                     @QueueBinding(
                             value = @Queue(name = "freightCenter.financial.queue"),
-                            exchange = @Exchange(name = "exchange.freightCenter.wlt", type = ExchangeTypes.TOPIC),
+                            exchange = @Exchange(name = "exchange.wlt.freightCenter", type = ExchangeTypes.TOPIC),
                             key = "key.freightCenter.financial"
                     ),
                     @QueueBinding(
                             value = @Queue(name = "freightCenter.shippingNode.queue"),
-                            exchange = @Exchange(name = "exchange.freightCenter.wlt", type = ExchangeTypes.TOPIC),
+                            exchange = @Exchange(name = "exchange.wlt.freightCenter", type = ExchangeTypes.TOPIC),
                             key = "key.freightCenter.shippingNode"
                     ),
                     @QueueBinding(
+                            value = @Queue(name = "uaa.organization.queue"),
+                            exchange = @Exchange(name = "exchange.wlt.uaa", type = ExchangeTypes.TOPIC),
+                            key = "key.uaa.organization"
+                    ),
+                    @QueueBinding(
                             value = @Queue(name = "freightCenter.organization.queue"),
-                            exchange = @Exchange(name = "exchange.freightCenter.uaa", type = ExchangeTypes.TOPIC),
-                            key = "key.freightCenter.organization"
+                            exchange = @Exchange(name = "exchange.uaa.freightCenter", type = ExchangeTypes.TOPIC),
+                            key = "key.uaa.organization"
                     )
             }
     )
