@@ -32,7 +32,6 @@ spring:
         format_sql: true
 
 
-
 #  cloud:
 #    sentinel:
 #      transport:
