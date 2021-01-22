@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 public class SendMessageDto implements Serializable {
 
-
+    private static final long serialVersionUID = 849658329159778636L;
     private MessageTypeEnum messageTypeEnum;
 
     //*************************网络货运平台车辆基础数据************************************
@@ -86,7 +86,6 @@ public class SendMessageDto implements Serializable {
 
     //*************************网络货运平台驾驶员基础数据************************************
     private String driverId;
-
     // 姓名	1..1	an..30	必填。对应运单技术规范第 35 项
     private String driverName;
     // 身份证号	1..1	an..18	必填。对应运单技术规范第 36 项

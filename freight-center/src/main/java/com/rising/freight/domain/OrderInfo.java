@@ -93,7 +93,7 @@ public class OrderInfo extends Model {
 //    @JsonSerialize(using = CustomDateTimeFormlessChange.class)
     private LocalDateTime goodsReceiptDateTime;
     // 运费金额	1..1	n..18,3	必填，托运人与网络货运经营者签订运输合同确定的运费金额，货币单位为人民币（元）， 保留 3 位小数，如整数的话，以.000 填充。如是一笔业务分几辆车运，需将托运人针对这笔业务付给网络货运经营者的运输费用分摊到每辆车上。
-    @Column(precision = 18, scale = 3)
+
     private BigDecimal totalMonetaryAmount;
 
     // 备注

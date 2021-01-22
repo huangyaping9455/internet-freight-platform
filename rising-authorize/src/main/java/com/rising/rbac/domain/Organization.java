@@ -74,10 +74,12 @@ public class Organization extends Model {
     @Comment("当前余额")
     private BigDecimal balance;
     @ApiModelProperty(value = "组织机构类型(公司，部门)")
-
     //@Enumerated(EnumType.STRING)
     @Comment("组织机构类型(公司，部门)")
     private Integer type;
+
+    @Comment("信用代码")
+    private String creditId;
     @OneToMany(mappedBy = "parent")
     @OrderBy("sort Asc")
     private List<Organization> childs = new ArrayList<>();
@@ -133,6 +135,14 @@ public class Organization extends Model {
 
     //==================getter======setter=============================
 
+
+    public String getCreditId() {
+        return creditId;
+    }
+
+    public void setCreditId(String creditId) {
+        this.creditId = creditId;
+    }
 
     public int getSort() {
         return sort;

@@ -1,11 +1,9 @@
-package com.rising.rbac.dto;
+package com.rising.freight.dto;
 
-import com.rising.common.web.annotation.Comment;
-import com.rising.rbac.domain.Organization;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.ManyToOne;
+import javax.management.relation.RoleInfo;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -23,24 +21,15 @@ import java.util.Set;
  */
 
 @Data
-public class OrganizationInfo implements Serializable {
+public class OrganizationDto implements Serializable {
 
     private Long id;
     private String name;
     private Long parentId;
     private String parentName;
-
     private Integer type;
     private String operator;
 
-    private Set<RoleInfo> roleList;
-
-    private Set<Long> roleIds;
-
-    /**
-     * 子节点
-     */
-    private List<OrganizationInfo> children = new ArrayList<>();
 
     //////////
     @ApiModelProperty(value = "排序序号")
@@ -68,7 +57,7 @@ public class OrganizationInfo implements Serializable {
     @ApiModelProperty(value = "所属行业")
     private String industry;
     @ApiModelProperty(value = "备注")
-      private String remarks;
+    private String remarks;
     @ApiModelProperty(value = "当前余额")
     private BigDecimal balance;
     @ApiModelProperty(value = "信用代码")

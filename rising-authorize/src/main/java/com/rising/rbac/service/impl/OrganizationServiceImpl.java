@@ -58,6 +58,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     public OrganizationInfo findByName(String platform) {
         Organization organization = organizationRepository.findByName(platform);
         OrganizationInfo organizationInfo = new OrganizationInfo();
+        if (null == organization) return null;
         BeanUtils.copyProperties(organization, organizationInfo);
         organizationInfo.setParentId(-1L);
         return organizationInfo;
@@ -105,7 +106,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     public OrganizationInfo create(OrganizationInfo info) {
         Organization parent = organizationRepository.findById(info.getParentId())
-                .orElse(organizationRepository.findByName("root"));
+                .orElse(organizationRepository.findByName("平台"));
         Organization organization = new Organization();
         BeanUtils.copyProperties(info, organization);
         parent.addChild(organization);

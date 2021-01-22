@@ -33,6 +33,16 @@ public class FreightCenterMessageService {
 
     ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * 创建：李启云
+     * 日期：2021-01-21
+     * 描述：处理消息
+     * 监听队列消息并处理
+     *
+     * @param message 消息
+     * @return
+     * @throws IOException ioexception
+     */
     @RabbitListener(
             bindings = {
                     @QueueBinding(
@@ -65,14 +75,33 @@ public class FreightCenterMessageService {
                             value = @Queue(name = "freightCenter.shippingNode.queue"),
                             exchange = @Exchange(name = "exchange.freightCenter.wlt", type = ExchangeTypes.TOPIC),
                             key = "key.freightCenter.shippingNode"
+                    ),
+                    @QueueBinding(
+                            value = @Queue(name = "freightCenter.organization.queue"),
+                            exchange = @Exchange(name = "exchange.freightCenter.uaa", type = ExchangeTypes.TOPIC),
+                            key = "key.freightCenter.organization"
                     )
             }
     )
     public void handleMessage(@Payload Message message) throws IOException {
-        log.info("handleMessage:message:{}", new String(message.getBody()));
 
         SendMessageDto messageDto = objectMapper.readValue(message.getBody(), SendMessageDto.class);
+        switch (messageDto.getMessageTypeEnum()) {
+            case CAR:
+                log.info("开始保存>>>>>车辆信息:{}", messageDto);
 
+                break;
+            case DRIVER:
+                log.info("开始保存>>>>>>司机信息:{}", messageDto);
+                break;
+            case SHIPPING_NODE:
+                log.info("开始保存>>>>>运单信息:{}", messageDto);
+                break;
+            case FINANCIAL:
+                log.info("开始保存>>>>>资金流水信息:{}", messageDto);
+
+                break;
+        }
 
     }
 
