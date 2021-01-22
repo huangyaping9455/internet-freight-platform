@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
  */
 @Data
 public class FinancialDto {
+    private String id;
     //单证号	1…1	an..35	必填，本资金流水单号。
     @Comment("资金流水单号")
     private String documentNumber;
