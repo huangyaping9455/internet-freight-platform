@@ -31,7 +31,12 @@ spring:
       hibernate:
         format_sql: true
 
-
+  rabbitmq:
+    host: 139.155.138.18
+    port: 5672
+    username: admin
+    password: rabbitmq@admin
+    virtual-host: waybill
 
 #  cloud:
 #    sentinel:
