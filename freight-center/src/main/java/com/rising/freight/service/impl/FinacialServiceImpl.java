@@ -55,7 +55,6 @@ public class FinacialServiceImpl implements FinacialService {
     @Override
     public List<FinancialDto> findListByCondition(FinacialCondition condition) {
         List<Financial> financialList = financialRepository.findAll(new FinancialSpec(condition));
-
         return QueryResultConverter.convert(financialList, getResponseClazz());
     }
 
