@@ -19,9 +19,9 @@ spring:
     name: gateway-server
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/rising_authority?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://120.24.43.129:3306/rising_authority?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8&useSSL=false
     username: root
-    password: root
+    password: root@123456
   redis:
     database: 8
 server:
