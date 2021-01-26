@@ -112,11 +112,11 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
 
     }
 
-    @ResponseResult
+    /*@ResponseResult
     @DeleteMapping("/{id}")
     @ApiOperation(value = "通过id删除,传入id")
     public void delById(@PathVariable("id") ID id) {
         getService().deleteById(id);
 
-    }
+    }*/
 }

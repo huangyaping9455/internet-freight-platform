@@ -35,6 +35,6 @@ public class FileSysController {
         return path;
 
     }
-
+//删除上传文件(文件服务器里面/更新数据库)
 
 }
