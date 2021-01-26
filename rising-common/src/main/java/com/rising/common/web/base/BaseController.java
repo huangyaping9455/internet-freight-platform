@@ -6,6 +6,7 @@ import com.rising.common.web.result.IResultCode;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,7 +81,8 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     @ResponseResult
     @GetMapping(value = "/getPageByCondition")
     @ApiOperation(value = "分页获取条件查询")
-    public Page<R> getPage(C condition, Pageable pageable) {
+    public Page<R> getPage(C condition, Integer page,Integer size) {
+        PageRequest pageable = PageRequest.of(page - 1, size);
         return getService().findPageByCondition(condition, pageable);
     }
 
