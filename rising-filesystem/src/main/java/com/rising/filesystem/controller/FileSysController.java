@@ -5,13 +5,8 @@ import io.github.bluemiaomiao.service.FastdfsClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.nio.file.Files;
 
 @Slf4j
 @RestController
@@ -33,6 +28,17 @@ public class FileSysController {
         log.info("path:{}", path);
 
         return path;
+
+    }
+
+
+    @ResponseResult
+    @PostMapping(value = "/delete")
+    public int delete(@RequestBody String file) throws Exception {
+        String group = file.substring(0,7);
+        String fileName = file.substring(7);
+        int back = fastdfsClientService.delete(group,fileName);
+        return back;
 
     }
 
