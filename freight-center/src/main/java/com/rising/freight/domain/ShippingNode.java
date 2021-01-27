@@ -22,36 +22,39 @@ import java.time.LocalDateTime;
 public class ShippingNode extends Model {
 
 
-//
-//    // 托运人信息
-//    @OneToOne
-//    @JoinColumn(name="consignorInfoId",referencedColumnName="id")
-//    private ShippingConsignorInfo consignorInfo;
-//    // 收货方信息
-//    @OneToOne
-//    @JoinColumn(name="consigneeInfoId",referencedColumnName="id")
-//    private ShippingConsigneeInfo consigneeInfo;
-//    // 实际承运人信息
-//    @OneToOne
-//    @JoinColumn(name="actualCarrierInfoId",referencedColumnName="id")
-//    private ShippingActualCarrierInfo actualCarrierInfo;
-//    // 保险信息
-//    @OneToOne
-//    @JoinColumn(name="insuranceInformationId",referencedColumnName="id")
-//      private ShippingInsuranceInformation insuranceInformation;
 
- //   // 车辆信息
-    //    @OneToOne
-//    @JoinColumn(name="car_id",referencedColumnName="id")
-//    private InternetCar vehicleInfo;
-//    // 司机信息
-//    @OneToOne
-//    @JoinColumn(name="driver_id",referencedColumnName="id")
-//      private InternetDriver driver;
-    //    // 货物信息
-//    @OneToOne
-    //    @JoinColumn(name="goods_id",referencedColumnName="id")
-//      private ShippingGoods goodsInfo;
+    // 托运人信息
+    @OneToOne
+    @JoinColumn(name="consignor_info_id",referencedColumnName="id")
+    private ConsignorInfo consignorInfo;
+    // 收货方信息
+    @OneToOne
+    @JoinColumn(name="consignee_info_id",referencedColumnName="id")
+    private ConsigneeInfo consigneeInfo;
+    // 实际承运人信息
+    @OneToOne
+    @JoinColumn(name="actual_carrierInfo_id",referencedColumnName="id")
+    private ActualCarrierInfo actualCarrierInfo;
+
+    // 保险信息
+    @OneToOne
+    @JoinColumn(name="insurance_information_id",referencedColumnName="id")
+      private InsuranceInformation insuranceInformation;
+
+    // 车辆信息
+    @OneToOne
+    @JoinColumn(name="car_id",referencedColumnName="id")
+    private InternetCar vehicleInfo;
+
+    // 司机信息
+    @OneToOne
+    @JoinColumn(name="driver_id",referencedColumnName="id")
+    private InternetDriver driver;
+
+    // 货物信息
+    @OneToOne
+    @JoinColumn(name="goods_id",referencedColumnName="id")
+    private ShippingGoods goodsInfo;
 
     // 原始单号 必填，上游企业委托运输单号。 an..35
     private String originalDocumentNumber;
