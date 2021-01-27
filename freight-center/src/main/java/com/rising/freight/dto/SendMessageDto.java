@@ -15,7 +15,7 @@ public class SendMessageDto implements Serializable {
 
     //*************************网络货运平台车辆基础数据************************************
     private String carId;
-
+    private Long oldCompanyId;
     // 车辆牌照号	1..1	an..35	必填，对应运单技术规范第 26 项。
     private String vehicleNumber;
     /**

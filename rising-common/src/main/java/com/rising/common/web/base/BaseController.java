@@ -81,7 +81,8 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     @ResponseResult
     @GetMapping(value = "/getPageByCondition")
     @ApiOperation(value = "分页获取条件查询")
-    public Page<R> getPage(C condition, Integer page,Integer size) {
+    public Page<R> getPage(C condition, @RequestParam("page") Integer page,
+                           @RequestParam("size") Integer size) {
         PageRequest pageable = PageRequest.of(page - 1, size);
         return getService().findPageByCondition(condition, pageable);
     }

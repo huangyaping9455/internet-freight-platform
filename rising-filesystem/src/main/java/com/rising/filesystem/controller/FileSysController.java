@@ -34,10 +34,9 @@ public class FileSysController {
 
     @ResponseResult
     @PostMapping(value = "/delete")
-    public int delete(@RequestBody String file) throws Exception {
-        String group = file.substring(0,7);
-        String fileName = file.substring(7);
-        int back = fastdfsClientService.delete(group,fileName);
+    public int delete(@RequestParam String groupName,@RequestParam String fileName) throws Exception {
+
+        int back = fastdfsClientService.delete(groupName,fileName);
         return back;
 
     }
