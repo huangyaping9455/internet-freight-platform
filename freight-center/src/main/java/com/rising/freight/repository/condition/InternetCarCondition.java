@@ -6,5 +6,7 @@ import lombok.Data;
 public class InternetCarCondition {
     private String vehicleNumber;
     private String owner;
+    private String drivingPermit;;
+    private String driverLicense;
 
 }
