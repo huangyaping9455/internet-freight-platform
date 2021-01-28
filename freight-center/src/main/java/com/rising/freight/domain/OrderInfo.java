@@ -1,9 +1,5 @@
 package com.rising.freight.domain;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -16,8 +12,8 @@ import java.time.LocalDateTime;
  * 日期：2020-12-31
  */
 
-@Getter
-@Setter
+/*@Getter
+@Setter*/
 public class OrderInfo extends Model {
 
 

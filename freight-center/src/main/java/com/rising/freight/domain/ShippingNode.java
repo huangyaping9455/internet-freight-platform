@@ -24,17 +24,19 @@ public class ShippingNode extends Model {
 
 
     // 托运人信息
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name="consignor_info_id",referencedColumnName="id")
-    private ConsignorInfo consignorInfo;
+    private ConsignorInfo consignorInfo;*/
+    private String consignor_id;
     // 收货方信息
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name="consignee_info_id",referencedColumnName="id")
-    private ConsigneeInfo consigneeInfo;
+    private ConsigneeInfo consigneeInfo;*/
     // 实际承运人信息
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name="actual_carrierInfo_id",referencedColumnName="id")
-    private ActualCarrierInfo actualCarrierInfo;
+    private ActualCarrierInfo actualCarrierInfo;*/
+    private String actualCarrier_id;
 
     // 保险信息
     @OneToOne
@@ -47,14 +49,14 @@ public class ShippingNode extends Model {
     private InternetCar vehicleInfo;
 
     // 司机信息
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name="driver_id",referencedColumnName="id")
-    private InternetDriver driver;
+    private InternetDriver driver;*/
 
     // 货物信息
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name="goods_id",referencedColumnName="id")
-    private ShippingGoods goodsInfo;
+    private ShippingGoods goodsInfo;*/
 
     // 原始单号 必填，上游企业委托运输单号。 an..35
     private String originalDocumentNumber;

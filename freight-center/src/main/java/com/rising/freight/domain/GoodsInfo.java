@@ -1,16 +1,9 @@
 package com.rising.freight.domain;
 
 
-import io.swagger.annotations.ApiModelProperty;
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.*;
+import javax.persistence.Column;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 描述：
@@ -20,10 +13,10 @@ import java.util.Set;
  * 作者：李启云
  * 日期：2020-12-31
  */
-@Entity
+/*@Entity
 @Table(name = "internet_goods_info")
 @Getter
-@Setter
+@Setter*/
 public class GoodsInfo extends Model {
 
     // 货物名称	1..1	an..512	必填。

@@ -1,11 +1,6 @@
 package com.rising.freight.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -16,10 +11,10 @@ import java.io.Serializable;
  * 作者：李启云
  * 日期：2020-12-31
  */
-@Entity
+/*@Entity
 @Table(name = "internet_actual_carrier_info")
 @Getter
-@Setter
+@Setter*/
 public class ActualCarrierInfo extends Model {
 
     // 实际承运人名称	1..1	an..256	必填，与网络货运经营者签订运输合同，实际完成运输的经营者。

@@ -6,8 +6,11 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 描述：运输货物信息
@@ -21,6 +24,9 @@ import java.math.BigDecimal;
 @Setter
 @Comment("货物信息")
 public class ShippingGoods extends Model{
+
+    @ManyToMany(mappedBy = "shippingGoods")
+    private Set<InternetCar> InternetCars = new HashSet<>();
 
     // 货物名称	1..1	an..512	必填。
     @Column(length = 512)
@@ -61,4 +67,22 @@ public class ShippingGoods extends Model{
     // 总件数	0..1	n..8	选填。
     @Column(precision = 8)
     private Integer totalNumberOfPackages;
+
+
+
+    // 收货方名称	1..1	an..512	必填。
+    private String consignee;
+
+
+    // 收货方统一社会信用代码或个人证件号码	1..1	an..35	必填。
+    private String consigneeID;
+
+    // 收货地址	0..1	an..256	选填，实际装货的地点。
+    private String goodsReceiptPlace;
+
+    // 收货地点的国家行政区划代码	1..1	an..12	必填，参照最新版《中华人民共和国行政区划代码》（GB/T 2260-2017），精确到区县。
+    private String countrySubdivisionCode;
+
+
+
 }
