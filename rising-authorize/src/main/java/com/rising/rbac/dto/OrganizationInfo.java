@@ -1,11 +1,8 @@
 package com.rising.rbac.dto;
 
-import com.rising.common.web.annotation.Comment;
-import com.rising.rbac.domain.Organization;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

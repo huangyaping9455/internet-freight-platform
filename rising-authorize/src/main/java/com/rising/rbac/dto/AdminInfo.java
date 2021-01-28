@@ -5,6 +5,7 @@ package com.rising.rbac.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rising.rbac.domain.Organization;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -62,5 +63,6 @@ public class AdminInfo implements Serializable {
     @ApiModelProperty(value = "操作人")
     private String operator;
 
+    private OrganizationInfo organization;
 
 }

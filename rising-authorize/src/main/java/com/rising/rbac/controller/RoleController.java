@@ -4,6 +4,7 @@
 package com.rising.rbac.controller;
 
 import com.rising.common.web.annotation.ResponseResult;
+import com.rising.rbac.domain.Admin;
 import com.rising.rbac.domain.Role;
 import com.rising.rbac.dto.RoleInfo;
 import com.rising.rbac.dto.condition.RoleCondition;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;

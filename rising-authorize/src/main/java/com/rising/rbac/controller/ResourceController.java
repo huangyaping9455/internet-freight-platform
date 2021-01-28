@@ -7,6 +7,7 @@ import com.rising.common.web.annotation.ResponseResult;
 import com.rising.rbac.controller.support.SimpleResponse;
 import com.rising.rbac.domain.Admin;
 import com.rising.rbac.dto.ResourceInfo;
+import com.rising.rbac.repository.support.BaseController;
 import com.rising.rbac.service.impl.ResourceServiceImpl;
 import com.rising.security.core.utils.ResultVOUtil;
 import com.rising.security.core.vo.ResultVO;
@@ -25,7 +26,7 @@ import java.util.Set;
  */
 @RestController
 @RequestMapping("/sys/resource")
-public class ResourceController {
+public class ResourceController extends BaseController {
 
     @Autowired
     private ResourceServiceImpl resourceService;
@@ -41,7 +42,7 @@ public class ResourceController {
      * @return resource info
      */
     @GetMapping
-    public ResultVO getTree(@AuthenticationPrincipal Admin admin) throws Exception {
+    public ResultVO getTree() throws Exception {
         ResourceInfo tree = resourceService.getTree(admin.getId());
         long start = new Date().getTime();
         tree.setPermissions((Set<String>) redisTemplate.opsForValue().get(admin.getUsername()));
@@ -52,14 +53,14 @@ public class ResourceController {
 
     @ResponseResult
     @GetMapping("resourceList")
-    public List<ResourceInfo> resourceList(@AuthenticationPrincipal Admin admin) throws Exception {
+    public List<ResourceInfo> resourceList() throws Exception {
         List<ResourceInfo> resourceList = resourceService.getResourceList(admin.getId());
         return resourceList;
     }
 
     @ResponseResult
     @GetMapping("selectRootList")
-    public List<ResourceInfo> selectList(@AuthenticationPrincipal Admin admin) throws Exception {
+    public List<ResourceInfo> selectList() throws Exception {
         List<ResourceInfo> resourceList = resourceService.getResourceList(admin.getId());
         ResourceInfo root = resourceService.findByName("root");
         resourceList.add(root);
