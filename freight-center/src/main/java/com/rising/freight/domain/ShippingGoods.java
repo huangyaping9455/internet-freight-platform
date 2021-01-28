@@ -25,8 +25,8 @@ import java.util.Set;
 @Comment("货物信息")
 public class ShippingGoods extends Model{
 
-    @ManyToMany(mappedBy = "shippingGoods")
-    private Set<InternetCar> InternetCars = new HashSet<>();
+    @ManyToMany(mappedBy = "goodsInfos")
+    private Set<InternetCar> internetCars = new HashSet<>();
 
     // 货物名称	1..1	an..512	必填。
     @Column(length = 512)
