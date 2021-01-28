@@ -30,14 +30,24 @@ public class FileSysController {
         return path;
 
     }
-//删除上传文件(文件服务器里面/更新数据库)
 
+
+    /**
+     * 码农：李齐云
+     * 日期：2021-01-28
+     * 描述：删除 例如：group1/M00/00/00/rBsQDmASX82AJ5GBABwP9pzkNr44.2.png
+     * 返回值：int
+     * @param groupName 组名称   group1
+     * @param fileName  文件名称  M00/00/00/rBsQDmASX82AJ5GBABwP9pzkNr44.2.png
+     * @throws Exception 异常
+     */
     @ResponseResult
-    @PostMapping(value = "/delete")
-    public int delete(@RequestParam String groupName,@RequestParam String fileName) throws Exception {
+    @DeleteMapping(value = "delete")
+    public int delete(@RequestParam("groupName") String groupName,
+                      @RequestParam("fileName") String fileName) throws Exception {
 
-        int back = fastdfsClientService.delete(groupName,fileName);
-        return back;
+        return fastdfsClientService.delete(groupName, fileName);
+
 
     }
 
