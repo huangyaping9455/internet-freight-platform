@@ -1,9 +1,6 @@
 package com.rising.enums;
 
-import com.rising.common.web.result.ResultCode;
-import lombok.Getter;
 
-import javax.ws.rs.GET;
 
 /**
  * 描述：车牌颜色代码枚举

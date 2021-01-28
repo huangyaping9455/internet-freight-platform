@@ -30,6 +30,7 @@ public class FileSysController {
         return path;
 
     }
+//删除上传文件(文件服务器里面/更新数据库)
 
 
     /**
@@ -42,12 +43,11 @@ public class FileSysController {
      * @throws Exception 异常
      */
     @ResponseResult
-    @DeleteMapping(value = "delete")
-    public int delete(@RequestParam("groupName") String groupName,
-                      @RequestParam("fileName") String fileName) throws Exception {
+    @DeleteMapping(value = "/delete")
+    public int delete(@RequestParam String groupName,@RequestParam String fileName) throws Exception {
 
-        return fastdfsClientService.delete(groupName, fileName);
-
+        int back = fastdfsClientService.delete(groupName,fileName);
+        return back;
 
     }
 

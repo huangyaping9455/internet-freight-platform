@@ -56,7 +56,7 @@ public class UAAMessageService {
             }
     )
     public void handleMessage(@Payload Message message) throws IOException {
-        log.info("AuthorizeMessageService开始处理消息>>>>{}", new String(message.getBody()));
+        log.info("AuthorizeMessageService开始处理消息>>>>{}", JSON.toJSONString(message.getBody()));
         OrganizationInfo organizationInfo = objectMapper.readValue(message.getBody(), OrganizationInfo.class);
         OrganizationInfo result = organizationService.findByName(organizationInfo.getName());
         if (ObjectUtils.isEmpty(result)) {

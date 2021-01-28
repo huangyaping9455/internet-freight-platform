@@ -17,7 +17,8 @@ import java.time.LocalDateTime;
  * 作者：李启云
  * 日期：2020-12-31
  */
-
+@Entity
+@Table(name = "internet_financial_statement")
 @Getter
 @Setter
 @Comment("财务报表")

@@ -1,7 +1,6 @@
 package com.rising.freight.dto;
 
 import com.rising.enums.MessageTypeEnum;
-import com.rising.enums.VehiclePlateColorCodeEnum;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,7 +15,7 @@ public class SendMessageDto implements Serializable {
 
     //*************************网络货运平台车辆基础数据************************************
     private String carId;
-    private Long oldCompanyId;
+
     // 车辆牌照号	1..1	an..35	必填，对应运单技术规范第 26 项。
     private String vehicleNumber;
     /**
@@ -28,7 +27,7 @@ public class SendMessageDto implements Serializable {
      * 93 黄绿色 94 渐变绿
      */
     // 车牌颜色代码	1..1	an..2	必填，21。
-    private VehiclePlateColorCodeEnum vehiclePlateColorCode;
+    private String vehiclePlateColorCode;
     // 车辆类型代码	1..1	an..3	必填。参考机动车行驶证填写，代码集参见 wlhy.mot.gov.cn。
     /**
      * 太多了 自己去文档找去

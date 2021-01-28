@@ -26,7 +26,6 @@ import java.util.Set;
 public class OrganizationInfo implements Serializable {
 
     private Long id;
-    private Long oldCompanyId;
     private String name;
     private Long parentId;
     private String parentName;
