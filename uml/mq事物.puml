@@ -1,0 +1,26 @@
+@startuml
+
+scale 2.8
+title 消息发送失败重试
+start
+
+if (Client) then (调用)
+:持久化消息;
+:发送消息;
+:发送成功;
+
+else (定时任务)
+:查询未成功的消息;
+:次数超限;
+:记录重发次数;
+endif
+
+if (RabbitMQ) then (返回回调)
+:重新是久化消息;
+else (确认回调)
+:发送确认;
+:删除消息;
+endif
+
+stop
+@enduml

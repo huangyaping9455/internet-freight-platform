@@ -20,16 +20,12 @@ public class FinancialController extends BaseController<Financial, FinancialDto,
 
     @Autowired
     private FinacialService finacialService;
-    @Autowired
-    private FinancialShippingNoteService financialShippingNoteService;
+
     @Override
     public MeetBaseService<Financial, FinancialDto, FinacialCondition, String> getService() {
         return finacialService;
     }
 
-    public MeetBaseService<FinancialShippingNote, FinancialShippingNoteDto, FinancialShippingNoteCondition, String> getService1() {
-        return financialShippingNoteService;
-    }
 
 
 }
