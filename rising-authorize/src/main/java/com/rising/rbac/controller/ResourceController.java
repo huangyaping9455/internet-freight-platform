@@ -11,6 +11,7 @@ import com.rising.rbac.repository.support.BaseController;
 import com.rising.rbac.service.impl.ResourceServiceImpl;
 import com.rising.security.core.utils.ResultVOUtil;
 import com.rising.security.core.vo.ResultVO;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -22,7 +23,12 @@ import java.util.Set;
 
 
 /**
- * @author liqiyun
+ * 版本：1.0.0
+ * 描述：资源控制器
+ *
+ * @see BaseController
+ * 码农：李齐云
+ * 日期：2021-01-28
  */
 @RestController
 @RequestMapping("/sys/resource")
@@ -35,12 +41,8 @@ public class ResourceController extends BaseController {
     @Autowired
     private RedisTemplate<Object, Object> redisTemplate;
 
-    /**
-     * 获取资源树
-     *
-     * @param admin the admin
-     * @return resource info
-     */
+
+    @ApiModelProperty("获取菜单信息")
     @GetMapping
     public ResultVO getTree() throws Exception {
         ResourceInfo tree = resourceService.getTree(admin.getId());
