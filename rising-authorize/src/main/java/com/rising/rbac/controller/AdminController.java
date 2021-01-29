@@ -6,16 +6,20 @@ package com.rising.rbac.controller;
 import com.rising.common.web.annotation.ResponseResult;
 import com.rising.common.web.result.ResultCode;
 import com.rising.rbac.domain.Admin;
+import com.rising.rbac.domain.Organization;
 import com.rising.rbac.dto.AdminInfo;
+import com.rising.rbac.dto.OrganizationInfo;
 import com.rising.rbac.dto.condition.AdminCondition;
 import com.rising.rbac.repository.support.BaseController;
 import com.rising.rbac.service.impl.AdminServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +48,9 @@ public class AdminController extends BaseController {
         info.setId(admin.getId());
         info.setOrganizationId(admin.getOrganization().getId());
         info.setOrganizationName(admin.getOrganization().getName());
+        OrganizationInfo organizationInfo = new OrganizationInfo();
+        BeanUtils.copyProperties(admin.getOrganization(),organizationInfo);
+        info.setOrganization(organizationInfo);
         return info;
     }
 

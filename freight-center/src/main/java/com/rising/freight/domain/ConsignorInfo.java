@@ -1,11 +1,6 @@
 package com.rising.freight.domain;
 
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -16,10 +11,10 @@ import java.io.Serializable;
  * 作者：李启云
  * 日期：2020-12-31
  */
-@Entity
+/*@Entity
 @Table(name = "internet_consignor_info")
 @Getter
-@Setter
+@Setter*/
 public class ConsignorInfo extends Model {
 
     // 托运人名称	1..1	an..512	必填。

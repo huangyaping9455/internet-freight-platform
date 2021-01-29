@@ -1,16 +1,13 @@
 package com.rising.freight.dto;
 
 
-import com.rising.freight.domain.InternetDriver;
+import com.rising.freight.domain.*;
 import lombok.Data;
 
 import javax.persistence.Column;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 描述：
@@ -24,20 +21,35 @@ import java.util.Set;
 public class ShippingNodeDto implements Serializable {
     private String id;
 
+
+
+
+    // 托运人信息
+    private ConsignorInfo consignorInfo;
+    // 收货方信息
+    private ConsigneeInfo consigneeInfo;
+    // 实际承运人信息
+    private ActualCarrierInfo actualCarrierInfo;
+    // 保险信息
+    private InsuranceInformation insuranceInformation;
+    // 车辆信息
+    private InternetCar vehicleInfo;
+    // 司机信息
+    private InternetDriver driver;
+    // 货物信息
+    private ShippingGoods goodsInfo;
+
+
+
+
+
 //    private Set<ConsignorInfo> consignorInfo = new HashSet<>();
-
 //    private Set<ConsigneeInfo> consigneeInfo = new HashSet<>();
-
 //    private Set<ActualCarrierInfo> actualCarrierInfo = new HashSet<>();
-
 //      private Set<InsuranceInformation> insuranceInformation = new HashSet<>();
-
 //    private Set<VehicleInfo> vehicleInfo = new HashSet<>();
-
 //      private Set<Driver> driver = new HashSet<>();
-
 //      private Set<GoodsInfo> goodsInfo = new HashSet<>();
-
     // 原始单号 必填，上游企业委托运输单号。 an..35
     private String originalDocumentNumber;
     // 托运单号 必填，本运单单号。 an..20

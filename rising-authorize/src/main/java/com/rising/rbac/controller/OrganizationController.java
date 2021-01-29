@@ -36,7 +36,7 @@ public class OrganizationController extends BaseController {
 
     @ResponseResult
     @GetMapping("organizationRootList")
-    public List<OrganizationInfo> organizationRootList(@AuthenticationPrincipal Admin admin) throws Exception {
+    public List<OrganizationInfo> organizationRootList() throws Exception {
         List<OrganizationInfo> organizationInfoList = organizationService.getOrganizationList(admin.getId());
         OrganizationInfo organizationInfo = organizationService.findByName("平台");
         organizationInfoList.add(organizationInfo);

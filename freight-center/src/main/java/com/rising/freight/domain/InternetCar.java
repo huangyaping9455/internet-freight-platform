@@ -32,6 +32,15 @@ public class InternetCar extends Model {
             inverseJoinColumns = {@JoinColumn(name = "driver_id", referencedColumnName = "id")})
     @ManyToMany(cascade = {CascadeType.ALL})
     private Set<InternetDriver> internetDrivers = new HashSet<>();
+
+    @ApiModelProperty(value = "货物信息")
+    @JoinTable(name = "car_goods",
+            joinColumns = {@JoinColumn(name = "car_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "goods_id", referencedColumnName = "id")})
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private Set<ShippingGoods> goodsInfos = new HashSet<>();
+
+
     // 车辆牌照号	1..1	an..35	必填，对应运单技术规范第 26 项。
     private String vehicleNumber;
     /**
