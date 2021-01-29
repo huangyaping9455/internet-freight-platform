@@ -58,7 +58,7 @@ public class InternetDriver  extends Model{
     // 备注	0..1	an..256	选填。
     private String remark;
     //驾驶证
-    private String driverLicense;
+    private String driverLicenseUrl;
 
     public void addCar(InternetCar car) {
         if (car != null) {

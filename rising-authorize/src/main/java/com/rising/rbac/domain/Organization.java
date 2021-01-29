@@ -29,7 +29,7 @@ public class Organization extends Model {
     @ApiModelProperty(value = "父组织机构")
     @ManyToOne
     private Organization parent;
-    private Long oldCompanyId;
+
     @ApiModelProperty(value = "排序序号")
     @Comment("排序序号")
     private int sort;
@@ -135,14 +135,6 @@ public class Organization extends Model {
 
     //==================getter======setter=============================
 
-
-    public Long getOldCompanyId() {
-        return oldCompanyId;
-    }
-
-    public void setOldCompanyId(Long oldCompanyId) {
-        this.oldCompanyId = oldCompanyId;
-    }
 
     public String getCreditId() {
         return creditId;

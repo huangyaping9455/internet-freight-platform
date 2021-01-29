@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 /**
  * 角色信息
@@ -47,13 +46,6 @@ public class Role extends Model implements Serializable {
      */
     @OneToMany(mappedBy = "role", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private List<RoleOrganization> organizations = new ArrayList<>();
-
-
-    public List<Role> getRole() {
-
-        return organizations.stream().map(RoleOrganization::getRole).collect(Collectors.toList());
-    }
-
 
     private String remark;
 

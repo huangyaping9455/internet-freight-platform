@@ -1,12 +1,16 @@
 package com.rising.filesystem.controller;
 
 import com.rising.common.web.annotation.ResponseResult;
+import com.rising.common.web.exception.ExceptionCast;
+import com.rising.common.web.result.ResultCode;
 import io.github.bluemiaomiao.service.FastdfsClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.sql.Array;
 
 @Slf4j
 @RestController
@@ -30,6 +34,7 @@ public class FileSysController {
         return path;
 
     }
+//删除上传文件(文件服务器里面/更新数据库)
 
 
     /**
@@ -42,12 +47,12 @@ public class FileSysController {
      * @throws Exception 异常
      */
     @ResponseResult
-    @DeleteMapping(value = "delete")
-    public int delete(@RequestParam("groupName") String groupName,
-                      @RequestParam("fileName") String fileName) throws Exception {
+    @DeleteMapping(value = "/delete")
+    public int delete(@RequestParam String groupName,@RequestParam String fileName) throws Exception {
 
-        return fastdfsClientService.delete(groupName, fileName);
-
+        int back = fastdfsClientService.delete(groupName,fileName);
+        System.out.println(back);
+        return back;
 
     }
 

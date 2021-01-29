@@ -16,7 +16,6 @@ public class FinancialController extends BaseController<Financial, FinancialDto,
 
     @Autowired
     private FinacialService finacialService;
-
     @Override
     public MeetBaseService<Financial, FinancialDto, FinacialCondition, String> getService() {
         return finacialService;
