@@ -1,12 +1,16 @@
 package com.rising.filesystem.controller;
 
 import com.rising.common.web.annotation.ResponseResult;
+import com.rising.common.web.exception.ExceptionCast;
+import com.rising.common.web.result.ResultCode;
 import io.github.bluemiaomiao.service.FastdfsClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.sql.Array;
 
 @Slf4j
 @RestController
@@ -47,6 +51,7 @@ public class FileSysController {
     public int delete(@RequestParam String groupName,@RequestParam String fileName) throws Exception {
 
         int back = fastdfsClientService.delete(groupName,fileName);
+        System.out.println(back);
         return back;
 
     }
