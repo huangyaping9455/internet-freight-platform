@@ -19,7 +19,7 @@ public class TransMessageServiceImpl implements TransMessageService {
     @Autowired
     TransMessageRepository transMessageRepository;
 
-    @Value("${moodymq.service}")
+    @Value("${rising.service}")
     String serviceName;
 
     @Override

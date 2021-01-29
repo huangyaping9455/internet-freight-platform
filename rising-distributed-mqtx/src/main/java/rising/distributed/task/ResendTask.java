@@ -27,10 +27,10 @@ public class ResendTask {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-    @Value("#{new Integer('${moodymq.resendTimes}')}")
+    @Value("#{new Integer('${rising.resendTimes}')}")
     int resendTimes;
 
-    @Scheduled(fixedDelayString = "${moodymq.resendFreq}")
+    @Scheduled(fixedDelayString = "${rising.resendFreq}")
     public void resendMessage() {
         log.info("resendMessage()");
         List<TransMessage> messagePOS = transMessageService.listReadyMessages();
