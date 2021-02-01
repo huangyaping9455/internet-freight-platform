@@ -1,4 +1,4 @@
-package com.rising.freight.service;
+package com.rising.freight.service.mq;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
