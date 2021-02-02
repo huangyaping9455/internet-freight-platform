@@ -2,6 +2,8 @@ package com.rising.freight.service.mq;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rising.common.clients.RisingServiceList;
+import com.rising.freight.client.OrganizationInfo;
 import com.rising.freight.dto.SendMessageDto;
 
 import com.rising.freight.repository.InternetCarRepository;
@@ -14,11 +16,15 @@ import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.net.URI;
 
 @Slf4j
 @Service
@@ -30,6 +36,11 @@ public class FreightCenterMessageService {
 
     @Autowired
     private InternetDriverRepository driverRepository;
+    @Autowired
+    LoadBalancerClient loadBalancerClient;
+
+    @Autowired
+    OAuth2RestTemplate oAuth2RestTemplate;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -76,11 +87,7 @@ public class FreightCenterMessageService {
                             exchange = @Exchange(name = "exchange.wlt.freightCenter", type = ExchangeTypes.TOPIC),
                             key = "key.freightCenter.shippingNode"
                     ),
-                    @QueueBinding(
-                            value = @Queue(name = "uaa.organization.queue"),
-                            exchange = @Exchange(name = "exchange.wlt.uaa", type = ExchangeTypes.TOPIC),
-                            key = "key.uaa.organization"
-                    ),
+
                     @QueueBinding(
                             value = @Queue(name = "freightCenter.organization.queue"),
                             exchange = @Exchange(name = "exchange.uaa.freightCenter", type = ExchangeTypes.TOPIC),
@@ -91,6 +98,11 @@ public class FreightCenterMessageService {
     public void handleMessage(@Payload Message message) throws IOException {
 
         SendMessageDto messageDto = objectMapper.readValue(message.getBody(), SendMessageDto.class);
+        ServiceInstance choose = loadBalancerClient.choose(RisingServiceList.UAA);
+        URI uri = choose.getUri();
+        String path = choose.getUri() + "/sys/organization/getInfoByOldCompanyId/" + messageDto.getOldCompanyId();
+        OrganizationInfo forObject = oAuth2RestTemplate.getForObject(path, OrganizationInfo.class);
+
         switch (messageDto.getMessageTypeEnum()) {
             case CAR:
                 log.info("开始保存>>>>>车辆信息:{}", messageDto);
@@ -108,7 +120,11 @@ public class FreightCenterMessageService {
                 break;
         }
 
+
     }
 
+    public static void main(String[] args) {
+
+    }
 
 }

@@ -15,4 +15,6 @@ import org.springframework.stereotype.Repository;
 public interface OrganizationRepository extends RisingRepository<Organization> {
 
     Organization findByName(String groupName);
+
+    Organization findByOldCompanyId(Long oldCompanyId);
 }

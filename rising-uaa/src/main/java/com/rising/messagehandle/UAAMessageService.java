@@ -1,13 +1,10 @@
 package com.rising.messagehandle;
 
 
-import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rising.rbac.domain.Organization;
 import com.rising.rbac.dto.OrganizationInfo;
 import com.rising.rbac.service.OrganizationService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.core.ExchangeTypes;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.Exchange;
@@ -18,7 +15,6 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.ObjectUtils;
 
 import java.io.IOException;
@@ -56,7 +52,7 @@ public class UAAMessageService {
             }
     )
     public void handleMessage(@Payload Message message) throws IOException {
-        log.info("AuthorizeMessageService开始处理消息>>>>{}", JSON.toJSONString(message.getBody()));
+        log.info("AuthorizeMessageService开始处理消息>>>>{}", new String(message.getBody()));
         OrganizationInfo organizationInfo = objectMapper.readValue(message.getBody(), OrganizationInfo.class);
         OrganizationInfo result = organizationService.findByName(organizationInfo.getName());
         if (ObjectUtils.isEmpty(result)) {

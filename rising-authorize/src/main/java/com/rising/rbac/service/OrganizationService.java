@@ -26,7 +26,7 @@ public interface OrganizationService {
      */
     OrganizationInfo getInfo(Admin admin, Long organizationId);
 
-
+    OrganizationInfo getInfoByOldCompanyId( Long oldCompanyId);
     /**
      * <p> 方法描述：新增组织机构 </p>
      * <p> 创建时间：2020-05-27 11:21:11 </p>

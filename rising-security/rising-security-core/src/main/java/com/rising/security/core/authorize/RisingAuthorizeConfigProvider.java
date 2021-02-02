@@ -38,6 +38,7 @@ public class RisingAuthorizeConfigProvider implements AuthorizeConfigProvider {
                 risingSecurityProperties.getBrowser().getLoginPage(),
                 //社交登录，如果需要用户注册，跳转的页面
                 risingSecurityProperties.getBrowser().getSignUpUrl(),
+                "/sys/organization/getInfoByOldCompanyId/*",
                 //session失效时跳转的地址
                 risingSecurityProperties.getBrowser().getSession().getSessionInvalidUrl())
                 .permitAll();

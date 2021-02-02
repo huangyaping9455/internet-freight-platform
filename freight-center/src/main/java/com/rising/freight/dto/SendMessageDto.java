@@ -3,21 +3,27 @@ package com.rising.freight.dto;
 import com.rising.enums.MessageTypeEnum;
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
 public class SendMessageDto implements Serializable {
 
-    private static final long serialVersionUID = 849658329159778636L;
+
+    private static final long serialVersionUID = 849658329259778636L;
     private MessageTypeEnum messageTypeEnum;
+    private String organizationId;
+    @NotNull
+    private Long oldCompanyId;
 
     //*************************网络货运平台车辆基础数据************************************
     private String carId;
 
+    //行驶证URL
     private String drivingPermitUrl;
-
     // 车辆牌照号	1..1	an..35	必填，对应运单技术规范第 26 项。
     private String vehicleNumber;
     /**
@@ -89,10 +95,6 @@ public class SendMessageDto implements Serializable {
     //*************************网络货运平台驾驶员基础数据************************************
     private String driverId;
 
-    //驾驶证
-    private String driverLicenseUrl;
-    //身份证
-    private String idCardUrl;
     // 姓名	1..1	an..30	必填。对应运单技术规范第 35 项
     private String driverName;
     // 身份证号	1..1	an..18	必填。对应运单技术规范第 36 项
@@ -105,7 +107,7 @@ public class SendMessageDto implements Serializable {
     private String validPeriodFrom;
     // 驾驶证有效期至	0..1	n8	使用总质量 4.5 吨及以下普通货运车辆从事
     //普通货物运输经营的驾驶员必填，根据机动车驾驶证填写。YYYYMMDD
-//    @JsonSerialize(using = CustomDateFormlessChange.class)
+
     private String validPeriodTo;
     // 从业资格证号	1..1	an..18	必填，驾驶员从业资格证号，使用总质量4.5 吨及以下普通货运车辆从事普通货物运输经营的驾驶员，填写“驾驶员身份证前 6位+000000000000”。
     private String qualificationCertificate;
@@ -237,7 +239,7 @@ public class SendMessageDto implements Serializable {
     private BigDecimal monetaryAmount;
     // 日期时间	1..1	n14	资金流水实际发生时间。YYYYMMDDhhmmss
 
-    private LocalDateTime dateTime;
+    private String dateTime;
 
 
     //*************************网络货运平资金流水基础数据************************************

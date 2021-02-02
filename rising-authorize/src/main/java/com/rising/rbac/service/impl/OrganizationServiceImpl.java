@@ -89,6 +89,15 @@ public class OrganizationServiceImpl implements OrganizationService {
         return organizationInfo;
     }
 
+    @Override
+    public OrganizationInfo getInfoByOldCompanyId(Long oldCompanyId) {
+        Organization organization = organizationRepository.findByOldCompanyId(oldCompanyId);
+        OrganizationInfo organizationInfo = new OrganizationInfo();
+        BeanUtils.copyProperties(organization, organizationInfo);
+
+        return organizationInfo;
+    }
+
     private Set<RoleInfo> getRoleCollect(List<RoleOrganization> roleOrganizations) {
         return roleOrganizations.stream().map(roleOrganization -> {
             RoleInfo roleInfo = new RoleInfo();

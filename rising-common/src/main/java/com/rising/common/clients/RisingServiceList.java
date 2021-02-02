@@ -15,6 +15,7 @@ public class RisingServiceList {
      * 价格服务
      */
     public static final String PRICE_SERVER = "price-server";
+    public static final String UAA= "uaa";
 
 
 }

@@ -91,6 +91,9 @@ public class Organization extends Model {
     @OneToMany(mappedBy = "role", cascade = CascadeType.REMOVE)
     private Set<RoleOrganization> organizations = new HashSet<>();
 
+
+    private Long oldCompanyId;
+
     public void addChild(Organization child) {
         childs.add(child);
         child.setParent(this);
@@ -135,6 +138,14 @@ public class Organization extends Model {
 
     //==================getter======setter=============================
 
+
+    public Long getOldCompanyId() {
+        return oldCompanyId;
+    }
+
+    public void setOldCompanyId(Long oldCompanyId) {
+        this.oldCompanyId = oldCompanyId;
+    }
 
     public String getCreditId() {
         return creditId;

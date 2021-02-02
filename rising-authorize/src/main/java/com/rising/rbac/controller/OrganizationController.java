@@ -73,6 +73,11 @@ public class OrganizationController extends BaseController {
         return organizationService.getInfo(admin, organizationId);
     }
 
+    @GetMapping("/getInfoByOldCompanyId/{id}")
+    public OrganizationInfo getInfoByOldCompanyId(@PathVariable("id") Long oldCompanyId) {
+        return organizationService.getInfoByOldCompanyId(oldCompanyId);
+    }
+
     /**
      * 创建：李启云
      * 日期：2020-11-30
