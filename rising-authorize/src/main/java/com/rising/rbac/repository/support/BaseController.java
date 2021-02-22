@@ -53,6 +53,7 @@ public abstract class BaseController {
         this.admin = admin;
     }
     private String getKey(Admin admin) {
+        if (admin==null) return "AnonymousUser";
         return "rising:security:login.user." + admin.getName();
     }
 
