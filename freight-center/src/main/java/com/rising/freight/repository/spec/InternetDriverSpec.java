@@ -21,5 +21,6 @@ public class InternetDriverSpec extends BaseSpecification<InternetDriver, Intern
     @Override
     protected void addCondition(DynamicQueryWrapper<InternetDriver> queryWrapper) {
         addLikeCondition(queryWrapper, "driverName");
+        addLikeCondition(queryWrapper, "telephone");
     }
 }

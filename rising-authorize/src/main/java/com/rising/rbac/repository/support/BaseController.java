@@ -43,7 +43,7 @@ public abstract class BaseController {
      * @param admin 管理
      * @return
      */
-   // @ModelAttribute
+    @ModelAttribute
     protected void setAdmin( @AuthenticationPrincipal Admin admin) {
         if (redisTemplate.hasKey(getKey(admin))) {
             this.admin = (Admin) redisTemplate.opsForValue().get(getKey(admin));

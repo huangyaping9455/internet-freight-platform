@@ -5,5 +5,5 @@ import lombok.Data;
 @Data
 public class InternetDriverCondition {
     private String driverName;
-   // private String telephone;
+    private String telephone;
 }
