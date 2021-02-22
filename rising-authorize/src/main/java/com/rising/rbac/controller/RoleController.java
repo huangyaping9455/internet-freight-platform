@@ -85,6 +85,10 @@ public class RoleController extends BaseController {
     public List<RoleInfo> findAll() {
         return roleService.findAll();
     }
+   @GetMapping("/getByCondition")
+    public List<RoleInfo> getByCondition(Admin admin,RoleCondition condition) {
+        return roleService.findByCondition(admin,condition);
+    }
 
     /**
      * 获取角色的所有资源

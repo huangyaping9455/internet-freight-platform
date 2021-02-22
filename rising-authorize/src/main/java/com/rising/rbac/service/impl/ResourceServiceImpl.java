@@ -89,6 +89,8 @@ public class ResourceServiceImpl implements IResourceService {
             RisingBeanUtil.copyPropertiesIgnoreNull(info, resource);
             resource.setParent(parent);
             resource.setParentName(parent.getName());
+            Set<String> perms = getPermsCollect(info);
+            resource.setUrls(perms);
             resourceRepository.save(resource);
         }
         return info;

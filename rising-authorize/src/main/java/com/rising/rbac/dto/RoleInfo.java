@@ -21,6 +21,8 @@ public class RoleInfo implements Serializable {
 
     private String name;
 
+    private int status;
+
     private String remark;
     private LocalDateTime createTime;
     @ApiModelProperty(value = "更新时间")

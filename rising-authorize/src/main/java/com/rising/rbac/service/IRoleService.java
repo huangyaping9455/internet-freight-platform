@@ -59,6 +59,8 @@ public interface IRoleService {
      */
     List<RoleInfo> findAll();
 
+    List<RoleInfo> findByCondition(Admin admin,RoleCondition condition);
+
     /**
      * 创建：李启云
      * 日期：2020-11-27
@@ -83,8 +85,14 @@ public interface IRoleService {
      String[] getOrganizations(Long id);
 
     /**
-     * @param id
-     * @param ids
+     * 码农：李齐云
+     * 日期：2021-02-22
+     * 描述：设置角色资源
+     * <p>
+     * 返回值：
+     *
+     * @param id       id
+     * @param roleInfo 角色信息
      */
     void setRoleResources(Long id, RoleInfo roleInfo);
 

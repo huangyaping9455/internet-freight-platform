@@ -148,6 +148,17 @@ public class RoleServiceImpl implements IRoleService {
     }
 
     @Override
+    public List<RoleInfo> findByCondition(Admin admin, RoleCondition condition) {
+        //如果登陆用户是admin 查询所有角色列表
+        if (StringUtils.equals("admin", admin.getUsername())) {
+            condition.setOrganizationId(null);
+        }
+        List<RoleOrganization> all = roleOrganizationRepository.findAll(new RoleSpec(condition));
+        List<Role> roleList = all.stream().map(RoleOrganization::getRole).collect(Collectors.toList());
+        return QueryResultConverter.convert(roleList,RoleInfo.class);
+    }
+
+    @Override
     public String[] getRoleResources(Long id) {
         Role role = roleRepository.findById(id).get();
         Set<String> resourceIds = new HashSet<>();
@@ -195,6 +206,7 @@ public class RoleServiceImpl implements IRoleService {
         Role role = roleRepository.findById(roleId).get();
         role.setName(roleInfo.getName());
         role.setRemark(roleInfo.getRemark());
+        role.setStatus(roleInfo.getStatus());
         roleResourceRepository.deleteInBatch(role.getResources());
         for (Long resourceId : roleInfo.getResourceIds()) {
             RoleResource roleResource = new RoleResource();
@@ -206,7 +218,7 @@ public class RoleServiceImpl implements IRoleService {
 
     @Override
     public Page<RoleInfo> page(Admin admin, RoleCondition condition, Pageable pageable) {
-        Page<RoleOrganization> all = null;
+        Page<RoleOrganization> all ;
         //如果登陆用户是admin 查询所有角色列表
         if (StringUtils.equals("admin", admin.getUsername())) {
             condition.setOrganizationId(null);
