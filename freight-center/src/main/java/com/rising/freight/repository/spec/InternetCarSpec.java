@@ -19,6 +19,8 @@ public class InternetCarSpec extends BaseSpecification<InternetCar, InternetCarC
         addLikeCondition(queryWrapper, "owner");
         addLikeCondition(queryWrapper, "drivingPermit");
         addLikeCondition(queryWrapper, "driverLicense");
+        addEqualsCondition(queryWrapper, "isDelete");
+        addEqualsCondition(queryWrapper, "organizationId");
 
     }
 }

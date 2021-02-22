@@ -24,24 +24,14 @@ import java.util.Set;
 public class OrganizationInfo implements Serializable {
 
     private Long id;
+    private Long oldCompanyId;
     private String name;
     private Long parentId;
     private String parentName;
-
     private Integer type;
     private String operator;
 
-    private Set<RoleInfo> roleList;
-
-    private Set<Long> roleIds;
-
-    /**
-     * 子节点
-     */
-    private List<OrganizationInfo> children = new ArrayList<>();
-
     //////////
-    private Long oldCompanyId;
     @ApiModelProperty(value = "排序序号")
     private int sort;
     @ApiModelProperty(value = "当前版本")
@@ -67,11 +57,12 @@ public class OrganizationInfo implements Serializable {
     @ApiModelProperty(value = "所属行业")
     private String industry;
     @ApiModelProperty(value = "备注")
-      private String remarks;
+    private String remarks;
     @ApiModelProperty(value = "当前余额")
     private BigDecimal balance;
     @ApiModelProperty(value = "信用代码")
     private String creditId;
+
 
 
 }
