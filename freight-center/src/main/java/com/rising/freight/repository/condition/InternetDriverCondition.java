@@ -6,4 +6,6 @@ import lombok.Data;
 public class InternetDriverCondition {
     private String driverName;
     private String telephone;
+    private Boolean isDelete;
+    private Long organizationId;
 }
