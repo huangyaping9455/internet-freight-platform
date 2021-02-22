@@ -21,5 +21,9 @@ public class FinancialSpec extends BaseSpecification<Financial, FinacialConditio
     @Override
     protected void addCondition(DynamicQueryWrapper<Financial> queryWrapper) {
         addLikeCondition(queryWrapper, "documentNumber");
+        addEqualsCondition(queryWrapper, "carrier");
+        addEqualsCondition(queryWrapper, "vehicleNumber");
+        addEqualsCondition(queryWrapper, "isDelete");
+        addEqualsCondition(queryWrapper, "organizationId");
     }
 }
