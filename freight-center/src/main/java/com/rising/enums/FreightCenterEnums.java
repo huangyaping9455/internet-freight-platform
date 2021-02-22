@@ -16,9 +16,9 @@ public enum FreightCenterEnums implements IResultCode {
     public String message() {
         return null;
     }
-    private Integer code;
+    private final Integer code;
 
-    private String message;
+    private final String message;
 
     FreightCenterEnums(Integer code, String message) {
         this.code = code;

@@ -29,9 +29,9 @@ public enum VehiclePlateColorCodeEnum {
     ;
 
 
-    private String code;
+    private final String code;
 
-    private String name;
+    private final String name;
 
     VehiclePlateColorCodeEnum(String code, String name) {
         this.code = code;
