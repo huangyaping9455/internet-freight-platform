@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 描述:权限和授权认证中心
@@ -13,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  * @ClassName: UAAServer
  * @date 2020/6/4 16:44
  */
-
+@EnableSwagger2
 @SpringBootApplication
 @EnableEurekaClient
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")

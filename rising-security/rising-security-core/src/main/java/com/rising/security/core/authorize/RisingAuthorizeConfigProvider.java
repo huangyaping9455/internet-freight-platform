@@ -4,6 +4,7 @@ import com.rising.security.core.enums.SecurityConstants;
 import com.rising.security.core.properties.RisingSecurityProperties;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
@@ -39,6 +40,14 @@ public class RisingAuthorizeConfigProvider implements AuthorizeConfigProvider {
                 //社交登录，如果需要用户注册，跳转的页面
                 risingSecurityProperties.getBrowser().getSignUpUrl(),
                 "/sys/organization/getInfoByOldCompanyId/*",
+                // swagger start
+                "/**/swagger-ui.html",
+                "/**/swagger-resources/**",
+                "/**/images/**",
+                "/**/webjars/**",
+                "/**/v2/api-docs",
+                "/**/configuration/ui",
+                "/**/configuration/security",
                 //session失效时跳转的地址
                 risingSecurityProperties.getBrowser().getSession().getSessionInvalidUrl())
                 .permitAll();

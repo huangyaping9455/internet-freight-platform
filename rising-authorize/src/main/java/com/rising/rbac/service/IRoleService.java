@@ -22,10 +22,13 @@ import java.util.List;
 public interface IRoleService {
 
     /**
-     * 创建角色
+     * 码农：李齐云
+     * 日期：2021-02-23
+     * 描述：创建角色
+     * <p>
+     * 返回值：{@link RoleInfo }
      *
-     * @param roleInfo
-     * @return
+     * @param roleInfo 角色信息
      */
     RoleInfo create(RoleInfo roleInfo);
 

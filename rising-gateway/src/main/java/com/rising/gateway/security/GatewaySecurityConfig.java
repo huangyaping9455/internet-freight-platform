@@ -64,15 +64,14 @@ public class GatewaySecurityConfig extends ResourceServerConfigurerAdapter {
                         "/favicon.ico",
                         "/uaa/authentication/**",
                         "/uaa/connect/**",
-                        "/**/*.html",
                         // swagger start
-                        "/swagger-ui.html",
-                        "/swagger-resources/**",
-                        "/images/**",
-                        "/webjars/**",
-                        "/v2/api-docs",
-                        "/configuration/ui",
-                        "/configuration/security"
+                        "/**/swagger-ui.html",
+                        "/**/swagger-resources/**",
+                        "/**/images/**",
+                        "/**/webjars/**",
+                        "/**/v2/api-docs",
+                        "/**/configuration/ui",
+                        "/**/configuration/security"
                         // swagger end
 
 

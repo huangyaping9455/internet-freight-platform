@@ -171,7 +171,7 @@ public class AdminServiceImpl implements IAdminService {
      */
     @Override
     public AdminInfo getInfo(Long id) {
-        Admin admin = adminRepository.findById(id).get();
+        Admin admin = adminRepository.findById(id).orElse(new Admin());
         AdminInfo info = new AdminInfo();
         info.setRoleIdList(admin.getRoles().stream().map(item -> item.getRole().getId()).collect(Collectors.toList()));
         BeanUtils.copyProperties(admin, info);

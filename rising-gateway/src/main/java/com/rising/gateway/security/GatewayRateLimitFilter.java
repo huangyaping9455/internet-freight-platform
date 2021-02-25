@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 public class GatewayRateLimitFilter extends OncePerRequestFilter {
 
-	private RateLimiter rateLimiter = RateLimiter.create(2);
+	private RateLimiter rateLimiter = RateLimiter.create(200);
 
 
 	@Override

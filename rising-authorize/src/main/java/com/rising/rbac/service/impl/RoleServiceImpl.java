@@ -1,9 +1,5 @@
-/**
- *
- */
+
 package com.rising.rbac.service.impl;
-
-
 import com.rising.common.web.exception.ExceptionCast;
 import com.rising.common.web.result.ResultCode;
 import com.rising.rbac.controller.support.QueryResultConverter;
@@ -30,7 +26,12 @@ import java.util.stream.Collectors;
 
 
 /**
- * @author liqiyun
+ * 版本：1.0.0
+ * 描述：角色服务impl
+ *
+ * @see IRoleService
+ * 码农：李齐云
+ * 日期：2021-02-23
  */
 @Service
 @Transactional

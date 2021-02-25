@@ -30,7 +30,7 @@ import java.util.List;
  * @author 李启云
  */
 
-@Api(value = "用户Api")
+@Api(value = "用户Api",tags = "管理员API")
 @RestController
 @RequestMapping("/sys/admin")
 public class AdminController extends BaseController {
@@ -132,4 +132,9 @@ public class AdminController extends BaseController {
         return adminService.query(admin.getUsername(), condition, pageable);
     }
 
+
+    @ApiOperation(value = "登录")
+    @PostMapping("/authentication/form")
+    public void login(){
+    }
 }
