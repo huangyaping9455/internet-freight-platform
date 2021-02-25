@@ -18,7 +18,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableEurekaClient
 @EnableResourceServer
 @EnableJpaAuditing
-@EnableSwagger2
 public class FreightCenterServer {
     public static void main(String[] args) {
         SpringApplication.run(FreightCenterServer.class, args);

@@ -5,6 +5,7 @@ import com.rising.rbac.domain.Admin;
 import com.rising.rbac.dto.OrganizationInfo;
 import com.rising.rbac.repository.support.BaseController;
 import com.rising.rbac.service.OrganizationService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.List;
  * 作者：李启云
  * 日期：2020-11-27
  */
+@Api(tags = "组织机构管理API")
 @RestController
 @RequestMapping("/sys/organization")
 public class OrganizationController extends BaseController {

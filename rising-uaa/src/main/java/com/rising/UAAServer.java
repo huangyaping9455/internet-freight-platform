@@ -14,7 +14,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @ClassName: UAAServer
  * @date 2020/6/4 16:44
  */
-@EnableSwagger2
 @SpringBootApplication
 @EnableEurekaClient
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")

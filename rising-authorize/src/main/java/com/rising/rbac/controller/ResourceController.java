@@ -11,6 +11,7 @@ import com.rising.rbac.repository.support.BaseController;
 import com.rising.rbac.service.impl.ResourceServiceImpl;
 import com.rising.security.core.utils.ResultVOUtil;
 import com.rising.security.core.vo.ResultVO;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -30,6 +31,8 @@ import java.util.Set;
  * 码农：李齐云
  * 日期：2021-01-28
  */
+
+@Api(tags = "资源菜单API")
 @RestController
 @RequestMapping("/sys/resource")
 public class ResourceController extends BaseController {

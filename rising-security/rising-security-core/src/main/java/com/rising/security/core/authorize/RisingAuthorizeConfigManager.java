@@ -8,17 +8,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * risng授权配置管理器
- * 描述:默认的授权配置管理器
- *
- * @author 李启云
- * @ProjectName risingdog
- * @ClassName: RisngAuthorizeConfigManager
- * @date 2020/4/18 21:13
+ * 版本：1.0.0
+ *  * 描述:默认的授权配置管理器
+ * @see AuthorizeConfigManager
+ * 码农：李齐云
+ * 日期：2021-02-25
  */
 
 @Component
-public class RisngAuthorizeConfigManager implements AuthorizeConfigManager {
+public class RisingAuthorizeConfigManager implements AuthorizeConfigManager {
 
     @Autowired
     private List<AuthorizeConfigProvider> authorizeConfigProviders;

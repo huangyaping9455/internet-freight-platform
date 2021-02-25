@@ -1,14 +1,10 @@
 
 package com.rising.gateway.security;
 
-import com.rising.security.core.authorize.AuthorizeConfigProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
@@ -69,6 +65,7 @@ public class GatewaySecurityConfig extends ResourceServerConfigurerAdapter {
                         "/**/swagger-resources/**",
                         "/**/images/**",
                         "/**/webjars/**",
+                        "/**/v2/api-docs",
                         "/**/v2/api-docs",
                         "/**/configuration/ui",
                         "/**/configuration/security"
