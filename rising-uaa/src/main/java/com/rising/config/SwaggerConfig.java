@@ -10,7 +10,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.web.context.request.async.DeferredResult;
-import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.*;
 import springfox.documentation.schema.ModelRef;
 import springfox.documentation.schema.WildcardType;
@@ -28,9 +27,12 @@ import java.util.*;
 import static springfox.documentation.schema.AlternateTypeRules.newRule;
 
 /**
- * swagger接口文档配置
- * @Author: ZJH
- * @Date: 2019/12/5 10:15
+ * 版本：1.0.0
+ * 描述：接口文档配置
+ *
+ * @see ApiListingScannerPlugin
+ * 码农：李齐云
+ * 日期：2021-02-25
  */
 
 @Configuration
@@ -75,7 +77,11 @@ public class SwaggerConfig implements ApiListingScannerPlugin {
     }
 
     /**
-     * 设置授权信息
+     * 码农：李齐云
+     * 日期：2021-02-25
+     * 描述：设置授权信息
+     * <p>
+     * 返回值：{@link List<ApiKey> }
      */
     private List<ApiKey> securitySchemes() {
         // 在请求头header添加一个名为Authorization的token
@@ -108,12 +114,12 @@ public class SwaggerConfig implements ApiListingScannerPlugin {
     }
 
     /**
-     * Implement this method to manually add ApiDescriptions
-     * 实现此方法可手动添加ApiDescriptions
+     * 码农：李齐云
+     * 日期：2021-02-25
+     * 描述：实现此方法可手动添加ApiDescriptions
+     * 返回值：{@link List<ApiDescription> }
      *
-     * @param context - Documentation context that can be used infer documentation context
-     * @return List of {@link ApiDescription}
-     * @see ApiDescription
+     * @param context 上下文
      */
     @Override
     public List<ApiDescription> apply(DocumentationContext context) {
