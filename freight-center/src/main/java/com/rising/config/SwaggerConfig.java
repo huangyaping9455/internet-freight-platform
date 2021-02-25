@@ -177,7 +177,7 @@ public class SwaggerConfig implements ApiListingScannerPlugin {
                                .build()))
                 .build();
 
-        ApiDescription loginApiDescription = new ApiDescription("/authentication/form",  "登录接口", Arrays.asList(usernamePasswordOperation), false);
+        ApiDescription loginApiDescription = new ApiDescription("认证请求","/authentication/form",  "登录接口", Arrays.asList(usernamePasswordOperation), false);
 
         return Arrays.asList(loginApiDescription);
     }
