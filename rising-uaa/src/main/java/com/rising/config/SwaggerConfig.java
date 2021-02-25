@@ -117,7 +117,7 @@ public class SwaggerConfig implements ApiListingScannerPlugin {
      */
     @Override
     public List<ApiDescription> apply(DocumentationContext context) {
-        List<RequestHandler> requestHandlers = context.getRequestHandlers();
+
         Operation usernamePasswordOperation = new OperationBuilder(new CachingOperationNameGenerator())
                 .method(HttpMethod.POST)
                 .summary("用户名密码登录")
