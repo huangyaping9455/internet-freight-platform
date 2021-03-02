@@ -1,6 +1,7 @@
 package com.rising.freight.domain;
 
 
+import com.rising.common.web.annotation.Comment;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,14 +27,12 @@ import java.util.Set;
 @Setter
 public class InternetCar extends Model {
 
-    @ApiModelProperty(value = "车辆所有驾驶员")
     @JoinTable(name = "car_driver",
             joinColumns = {@JoinColumn(name = "car_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "driver_id", referencedColumnName = "id")})
     @ManyToMany(cascade = {CascadeType.ALL})
     private Set<InternetDriver> internetDrivers = new HashSet<>();
 
-    @ApiModelProperty(value = "货物信息")
     @JoinTable(name = "car_goods",
             joinColumns = {@JoinColumn(name = "car_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "goods_id", referencedColumnName = "id")})
@@ -51,26 +50,31 @@ public class InternetCar extends Model {
      * 91 农黄色 92 农绿色
      * 93 黄绿色 94 渐变绿
      */
-    // 车牌颜色代码	1..1	an..2	必填，21。
+    // 	1..1	an..2	必填，21
+    @Comment("车牌颜色代码")
     private String vehiclePlateColorCode;
-    // 车辆类型代码	1..1	an..3	必填。参考机动车行驶证填写，代码集参见 wlhy.mot.gov.cn。
-    /**
-     * 太多了 自己去文档找去
-     */
+    // 	1..1	an..3	必填。参考机动车行驶证填写，代码集参见 wlhy.mot.gov.cn。
+    @Comment("车辆类型代码")
     private String vehicleType;
-    // 所有人	0..1	an..128	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    // 	0..1	an..128	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    @Comment("所有人")
     private String owner;
-    // 使用性质	0..1	an..20	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    // 	0..1	an..20	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    @Comment("使用性质")
     private String useCharacter;
-    // 车辆识别代号	0..1	an..32	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    // 	0..1	an..32	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    @Comment("车辆识别代号")
     private String vin;
-    // 发证机关	0..1	an..128	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    // 	0..1	an..128	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。
+    @Comment("发证机关")
     private String issuingOrganizations;
-    // 注册日期	0..1	n8	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。YYYYMMDD
-//    @JsonSerialize(using = CustomDateFormlessChange.class)
+    // 	0..1	n8	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。YYYYMMDD
+
+    @Comment("注册日期")
     private LocalDate registerDate;
-    // 发证日期	0..1	n8	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。YYYYMMDD
-//    @JsonSerialize(using = CustomDateFormlessChange.class)
+    // 	0..1	n8	总质量 4.5 吨及以下普通货运车辆必填，按照机动车行驶证填写。YYYYMMDD
+
+    @Comment("发证日期")
     private LocalDate issueDate;
     /**
      * 代 码 能源类型 说明
@@ -87,31 +91,38 @@ public class InternetCar extends Model {
      * Y 无 仅限全挂车等无动力的
      * Z 其他
      */
-    // 车辆能源类型	1..1	an..12	必填，代码集参见wlhy.mot.gov.cn。
+    // 	1..1	an..12	必填，代码集参见wlhy.mot.gov.cn。
+    @Comment("车辆能源类型")
     private String vehicleEnergyType;
-    // 核定载质量	1..1	n..9,2	必填，参考机动车行驶证填写，默认单位：
+    // 	1..1	n..9,2	必填，参考机动车行驶证填写，默认单位：
     //吨，保留两位小数，如整数的话，以.00 填
     //充。小数点不计入总长。
     @Column(precision = 24, scale = 2)
+    @Comment("核定载质量")
     private BigDecimal vehicleTonnage;
-    // 吨位	1..1	n..9,2	必填，车辆总质量，默认单位：吨，保留两
+    // 	1..1	n..9,2	必填，车辆总质量，默认单位：吨，保留两
     //位小数，如整数的话，以.00 填充。小数点不计入总长
     @Column(precision = 24, scale = 2)
+    @Comment("吨位")
     private BigDecimal grossMass;
-    // 道路运输证号	1..1	n..20	必填，总质量 4.5 吨及以下普通货运车辆
+    // 	1..1	n..20	必填，总质量 4.5 吨及以下普通货运车辆
     //的，可填“车籍地 6 位行政区域代码
     //+000000”。
+    @Comment("道路运输证号")
     private Long roadTransportCertificateNumber;
-    // 挂车牌照号	0..1	an..35	选填。
+    // 	0..1	an..35	选填。
+    @Comment("挂车牌照号")
     private String trailerVehiclePlateNumber;
-    // 备注	0..1	an..256	选填。
+    // 	0..1	an..256	选填。
+    @Comment("备注")
     private String remark;
 
 
-    // 行车证	0..1	an..256	选填。
-    private String drivingPermit;;
-    // 驾驶证	0..1	an..256	选填。
-    private String driverLicense;
+    @Comment("行车证Url")
+    private String vehicleLicenceUrl;
+
+    @Comment("驾驶证Url")
+    private String driverLicenseUrl;
 
 
     public void addDriver(InternetDriver driver) {

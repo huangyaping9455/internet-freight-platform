@@ -23,7 +23,7 @@ spring:
     generate-ddl: true
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
       ##打印sql语句时是否格式化
       #spring.jpa.properties.hibernate.format_sql=true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

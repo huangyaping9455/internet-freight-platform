@@ -1,6 +1,6 @@
 @startuml
 
-scale 1.5
+scale 1.3
 actor "用户" as User #005bbb
 participant "平台" as platform #43CF5B
 participant "用户信息" as userInfo #F47022

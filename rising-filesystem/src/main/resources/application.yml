@@ -33,7 +33,7 @@ spring:
   servlet:
     multipart:
       max-request-size: 10MB
-      max-file-size: 5MB
+      max-file-size: 10MB
 
 
 #  cloud:
@@ -69,7 +69,6 @@ eureka:
     instance-id: ${spring.application.name}:${server.port} #指定实例id
 #fastFDS
 fastdfs:
-
   charset: UTF-8
   connect-timeout: 15
   # http-secret-key: your key
