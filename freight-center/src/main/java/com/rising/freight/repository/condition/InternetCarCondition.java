@@ -10,6 +10,6 @@ public class InternetCarCondition {
 
     private String driverLicense;
     private Boolean isDelete;
-    private Long organizationId;
+    private String organizationId;
 
 }

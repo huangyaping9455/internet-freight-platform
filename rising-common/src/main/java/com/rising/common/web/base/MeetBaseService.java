@@ -1,10 +1,13 @@
 package com.rising.common.web.base;
 
+import com.rising.common.core.GenericUtils;
 import com.rising.common.support.Domain2InfoConverter;
 import com.rising.common.support.QueryResultConverter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -66,8 +69,6 @@ public interface MeetBaseService<T, R, C, ID> extends Domain2InfoConverter<T, R>
         return QueryResultConverter.convert(all, getResponseClazz());
 
     }
-
-    ;
 
     /**
      * 创建：李启云

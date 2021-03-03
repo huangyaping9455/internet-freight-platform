@@ -2,12 +2,15 @@ package com.rising.freight.service.impl;
 
 import com.rising.common.support.QueryResultConverter;
 import com.rising.common.web.base.BaseRepository;
+import com.rising.common.web.exception.ExceptionCast;
+import com.rising.common.web.result.ResultCode;
 import com.rising.freight.domain.InternetDriver;
 import com.rising.freight.dto.InternetDriverDto;
 import com.rising.freight.repository.InternetDriverRepository;
 import com.rising.freight.repository.condition.InternetDriverCondition;
 import com.rising.freight.repository.spec.InternetDriverSpec;
 import com.rising.freight.service.InternetDriverService;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +18,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -39,8 +43,15 @@ public class InternetDriverServiceImpl implements InternetDriverService {
     }
 
     @Override
-    public InternetDriverDto get(String aLong) {
-        return null;
+    public InternetDriverDto save(InternetDriverDto entityDto) {
+        InternetDriverCondition condition = new InternetDriverCondition();
+        condition.setDriverName(entityDto.getDriverName());
+        condition.setOrganizationId(entityDto.getOrganizationId());
+        List<InternetDriverDto> driverList = findListByCondition(condition);
+        if (CollectionUtils.isNotEmpty(driverList))
+            ExceptionCast.cast(ResultCode.DATA_DRIVER_EXISTED);
+        driverRepository.save(rConvertT(entityDto));
+        return entityDto;
     }
 
     @Override

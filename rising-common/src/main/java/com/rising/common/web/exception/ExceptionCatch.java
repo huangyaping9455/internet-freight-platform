@@ -78,8 +78,8 @@ public class ExceptionCatch {
         if (resultCode != null) {
             return new DefaultErrorResult(resultCode);
         } else {
-            //返回99999异常
-            return new DefaultErrorResult(ResultCode.SERVER_ERROR);
+            //返回40001异常
+            return new DefaultErrorResult(ResultCode.SYSTEM_INNER_ERROR);
         }
 
 

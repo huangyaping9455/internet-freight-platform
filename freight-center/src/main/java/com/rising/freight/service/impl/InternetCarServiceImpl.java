@@ -2,6 +2,8 @@ package com.rising.freight.service.impl;
 
 import com.rising.common.support.QueryResultConverter;
 import com.rising.common.web.base.BaseRepository;
+import com.rising.common.web.exception.ExceptionCast;
+import com.rising.common.web.result.ResultCode;
 import com.rising.freight.domain.InternetCar;
 import com.rising.freight.dto.InternetCarDto;
 import com.rising.freight.repository.InternetCarRepository;
@@ -55,6 +57,17 @@ public class InternetCarServiceImpl implements InternetCarService {
         InternetCar internetCar = new InternetCar();
         BeanUtils.copyProperties(domain, internetCar);
         return internetCar;
+    }
+
+    @Override
+    public InternetCarDto save(InternetCarDto entityDto) {
+        InternetCarCondition condition = new InternetCarCondition();
+        condition.setVehicleNumber(entityDto.getVehicleNumber());
+        condition.setOrganizationId(entityDto.getOrganizationId());
+        if (CollectionUtils.isNotEmpty(findListByCondition(condition)))
+            ExceptionCast.cast(ResultCode.DATA_CAR_EXISTED);
+        internetCarRepository.save(rConvertT(entityDto));
+        return entityDto;
     }
 
     @Override

@@ -59,7 +59,11 @@ public class GenericUtils {
     public static Class getInterfaceT(Class clazz, int index) {
         Class[] interfaces = clazz.getInterfaces();
         Type[] types = clazz.getGenericInterfaces();
+        for (Type type : types) {
+            ParameterizedType parameterizedType = (ParameterizedType)type;
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
 
+        }
 
         ParameterizedType parameterizedType = (ParameterizedType) types[0];
         Type type = parameterizedType.getActualTypeArguments()[index];

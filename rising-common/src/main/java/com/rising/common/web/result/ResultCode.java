@@ -48,6 +48,8 @@ public enum ResultCode implements IResultCode {
     RESULE_DATA_NONE(50001, "数据未找到"),
     DATA_IS_WRONG(50002, "数据有误"),
     DATA_ALREADY_EXISTED(50003, "数据已存在"),
+    DATA_DRIVER_EXISTED(50004, "司机已存在"),
+    DATA_CAR_EXISTED(50005, "车辆已存在"),
 
     /* 接口错误：60001-69999 */
     INTERFACE_INNER_INVOKE_ERROR(60001, "内部系统接口调用异常"),
@@ -60,8 +62,7 @@ public enum ResultCode implements IResultCode {
     /* 权限错误：70001-79999 */
     PERMISSION_NO_ACCESS(70001, "无访问权限"),
     RESOURCE_EXISTED(70002, "资源已存在"),
-    RESOURCE_NOT_EXISTED(70003, "资源不存在"),
-    SERVER_ERROR(99999, "抱歉，系统繁忙，请稍后重试！");
+    RESOURCE_NOT_EXISTED(70003, "资源不存在");
 
 
     private Integer code;

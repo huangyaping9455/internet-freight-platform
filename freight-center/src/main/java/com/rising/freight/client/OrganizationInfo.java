@@ -23,7 +23,7 @@ import java.util.Set;
 @Data
 public class OrganizationInfo implements Serializable {
 
-    private Long id;
+    private String id;
     private Long oldCompanyId;
     private String name;
     private Long parentId;

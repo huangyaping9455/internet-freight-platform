@@ -121,7 +121,7 @@ public class FreightCenterMessageService {
                 BeanUtils.copyProperties(messageDto, carDto);
                 carDto.setIssueDate(LocalDate.parse(messageDto.getIssueDate()));
                 InternetCarCondition carCondition = new InternetCarCondition();
-                carCondition.setOrganizationId(organizationInfo.getId());
+                carCondition.setOrganizationId(organizationInfo.getId()+"");
                 carCondition.setIsDelete(false);
               //  InternetCarDto carByCondition = carService.findCarByCondition(carCondition);
               //  carService.save(carDto);
