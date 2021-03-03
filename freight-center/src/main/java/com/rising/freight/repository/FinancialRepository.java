@@ -1,7 +1,7 @@
 package com.rising.freight.repository;
 
 import com.rising.common.web.base.BaseRepository;
-import com.rising.freight.domain.Financial;
+import com.rising.freight.domain.InternetFinancial;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * 日期：2021-01-04
  */
 @Repository
-public interface FinancialRepository extends BaseRepository<Financial,String> {
+public interface FinancialRepository extends BaseRepository<InternetFinancial,String> {
 
 
 }

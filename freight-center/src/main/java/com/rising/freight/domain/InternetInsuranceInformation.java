@@ -24,7 +24,7 @@ import java.util.Set;
 @Table(name = "internet_insurance")
 @Getter
 @Setter
-public class InsuranceInformation extends Model {
+public class InternetInsuranceInformation extends Model {
 
     // 保险单号	1..1	an..30	必填，未投保的，可填none。
     private String policyNumber;

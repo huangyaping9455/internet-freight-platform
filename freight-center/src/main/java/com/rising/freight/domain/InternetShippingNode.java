@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Table(name = "internet_order_info")
 @Getter
 @Setter
-public class ShippingNode extends Model {
+public class InternetShippingNode extends Model {
 
 
 
@@ -41,7 +41,7 @@ public class ShippingNode extends Model {
     // 保险信息
     @OneToOne
     @JoinColumn(name="insurance_information_id",referencedColumnName="id")
-      private InsuranceInformation insuranceInformation;
+      private InternetInsuranceInformation internetInsuranceInformation;
 
     // 车辆信息
     @OneToOne

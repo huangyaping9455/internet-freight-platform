@@ -2,7 +2,7 @@ package com.rising.freight.service.impl;
 
 import com.rising.common.support.QueryResultConverter;
 import com.rising.common.web.base.BaseRepository;
-import com.rising.freight.domain.ShippingNode;
+import com.rising.freight.domain.InternetShippingNode;
 import com.rising.freight.dto.ShippingNodeDto;
 import com.rising.freight.repository.ShippingNodeRepository;
 import com.rising.freight.repository.condition.ShippingNodeCondition;
@@ -27,7 +27,7 @@ public class ShippingNodeServiceImpl implements ShippingNodeService {
 
 
     @Override
-    public BaseRepository<ShippingNode, String> getRepository() {
+    public BaseRepository<InternetShippingNode, String> getRepository() {
         return shippingNodeRepository;
     }
 
@@ -37,8 +37,8 @@ public class ShippingNodeServiceImpl implements ShippingNodeService {
     }
 
     @Override
-    public Class<ShippingNode> getDomainClazz() {
-        return ShippingNode.class;
+    public Class<InternetShippingNode> getDomainClazz() {
+        return InternetShippingNode.class;
     }
 
     @Override
@@ -48,34 +48,34 @@ public class ShippingNodeServiceImpl implements ShippingNodeService {
 
 
     @Override
-    public ShippingNodeDto convert(ShippingNode shippingNode) {
+    public ShippingNodeDto convert(InternetShippingNode internetShippingNode) {
         ShippingNodeDto shippingNodeDto = new ShippingNodeDto();
-        BeanUtils.copyProperties(shippingNodeDto, shippingNode);
+        BeanUtils.copyProperties(shippingNodeDto, internetShippingNode);
         return shippingNodeDto;
     }
 
     @Override
-    public ShippingNode rConvertT(ShippingNodeDto domain) {
-        ShippingNode shippingNode = new ShippingNode();
-        BeanUtils.copyProperties(domain, shippingNode);
-        return shippingNode;
+    public InternetShippingNode rConvertT(ShippingNodeDto domain) {
+        InternetShippingNode internetShippingNode = new InternetShippingNode();
+        BeanUtils.copyProperties(domain, internetShippingNode);
+        return internetShippingNode;
     }
 
 
 
     @Override
     public List<ShippingNodeDto> findListByCondition(ShippingNodeCondition condition) {
-        List<ShippingNode> shippingNodeList = shippingNodeRepository.findAll(new ShippingNodeSpec(condition));
-        return QueryResultConverter.convert(shippingNodeList, getResponseClazz());
+        List<InternetShippingNode> internetShippingNodeList = shippingNodeRepository.findAll(new ShippingNodeSpec(condition));
+        return QueryResultConverter.convert(internetShippingNodeList, getResponseClazz());
     }
 
 
 
     @Override
     public ShippingNodeDto findShippingNodeByCondition(ShippingNodeCondition condition) {
-        ShippingNode shippingNode = shippingNodeRepository.findOne(new ShippingNodeSpec(condition)).orElse(new ShippingNode());
+        InternetShippingNode internetShippingNode = shippingNodeRepository.findOne(new ShippingNodeSpec(condition)).orElse(new InternetShippingNode());
         ShippingNodeDto shippingNodeDto = new ShippingNodeDto();
-        BeanUtils.copyProperties(shippingNode, shippingNodeDto);
+        BeanUtils.copyProperties(internetShippingNode, shippingNodeDto);
         return shippingNodeDto;
     }
 

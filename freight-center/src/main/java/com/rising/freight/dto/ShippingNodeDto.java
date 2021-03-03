@@ -31,7 +31,7 @@ public class ShippingNodeDto implements Serializable {
     // 实际承运人信息
     private ActualCarrierInfo actualCarrierInfo;
     // 保险信息
-    private InsuranceInformation insuranceInformation;
+    private InternetInsuranceInformation internetInsuranceInformation;
     // 车辆信息
     private InternetCar vehicleInfo;
     // 司机信息

@@ -2,7 +2,7 @@ package com.rising.freight.service.impl;
 
 import com.rising.common.support.QueryResultConverter;
 import com.rising.common.web.base.BaseRepository;
-import com.rising.freight.domain.Financial;
+import com.rising.freight.domain.InternetFinancial;
 import com.rising.freight.dto.FinancialDto;
 import com.rising.freight.repository.FinancialRepository;
 import com.rising.freight.repository.condition.FinacialCondition;
@@ -22,14 +22,14 @@ public class FinacialServiceImpl implements FinacialService {
     @Autowired
     private FinancialRepository financialRepository;
     @Override
-    public Financial rConvertT(FinancialDto domainDto) {
-        Financial financial = new Financial();
-        BeanUtils.copyProperties(domainDto, financial);
-        return financial;
+    public InternetFinancial rConvertT(FinancialDto domainDto) {
+        InternetFinancial internetFinancial = new InternetFinancial();
+        BeanUtils.copyProperties(domainDto, internetFinancial);
+        return internetFinancial;
     }
 
     @Override
-    public BaseRepository<Financial, String> getRepository() {
+    public BaseRepository<InternetFinancial, String> getRepository() {
         return financialRepository;
     }
 
@@ -39,26 +39,26 @@ public class FinacialServiceImpl implements FinacialService {
     }
 
     @Override
-    public Class<Financial> getDomainClazz() {
-        return Financial.class;
+    public Class<InternetFinancial> getDomainClazz() {
+        return InternetFinancial.class;
     }
 
     @Override
     public Page<FinancialDto> findPageByCondition(FinacialCondition condition, Pageable pageable) {
-        Page<Financial> financialPage = financialRepository.findAll(new FinancialSpec(condition), pageable);
+        Page<InternetFinancial> financialPage = financialRepository.findAll(new FinancialSpec(condition), pageable);
         return QueryResultConverter.convert(financialPage, getResponseClazz(), pageable);
     }
 
     @Override
     public List<FinancialDto> findListByCondition(FinacialCondition condition) {
-        List<Financial> financialList = financialRepository.findAll(new FinancialSpec(condition));
-        return QueryResultConverter.convert(financialList, getResponseClazz());
+        List<InternetFinancial> internetFinancialList = financialRepository.findAll(new FinancialSpec(condition));
+        return QueryResultConverter.convert(internetFinancialList, getResponseClazz());
     }
 
     @Override
-    public FinancialDto convert(Financial financial) {
+    public FinancialDto convert(InternetFinancial internetFinancial) {
         FinancialDto financialDto = new FinancialDto();
-        BeanUtils.copyProperties(financial, financialDto);
+        BeanUtils.copyProperties(internetFinancial, financialDto);
         return financialDto;
     }
 }

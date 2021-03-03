@@ -2,9 +2,7 @@ package com.rising.freight.repository.spec;
 
 import com.rising.common.support.BaseSpecification;
 import com.rising.common.support.DynamicQueryWrapper;
-import com.rising.freight.domain.Financial;
 import com.rising.freight.domain.FinancialShippingNote;
-import com.rising.freight.repository.condition.FinacialCondition;
 import com.rising.freight.repository.condition.FinancialShippingNoteCondition;
 
 public class FinancialShippingNoteSpec extends BaseSpecification<FinancialShippingNote, FinancialShippingNoteCondition> {

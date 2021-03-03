@@ -25,15 +25,16 @@ import java.util.Set;
 @Table(name = "internet_car")
 @Getter
 @Setter
+@Comment(" 网络货运平台车辆基础数据")
 public class InternetCar extends Model {
 
-    @JoinTable(name = "car_driver",
+    @JoinTable(name = "internet_car_driver",
             joinColumns = {@JoinColumn(name = "car_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "driver_id", referencedColumnName = "id")})
     @ManyToMany(cascade = {CascadeType.ALL})
     private Set<InternetDriver> internetDrivers = new HashSet<>();
 
-    @JoinTable(name = "car_goods",
+    @JoinTable(name = "internet_car_goods",
             joinColumns = {@JoinColumn(name = "car_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "goods_id", referencedColumnName = "id")})
     @ManyToMany(cascade = {CascadeType.ALL})
@@ -117,12 +118,10 @@ public class InternetCar extends Model {
     @Comment("备注")
     private String remark;
 
-
-    @Comment("行车证Url")
-    private String vehicleLicenceUrl;
-
-    @Comment("驾驶证Url")
-    private String driverLicenseUrl;
+    @Comment("车辆附件URL")
+    @ElementCollection
+    @CollectionTable(name = "internet_car_attachment_urls")
+    private Set<String> carAttachmentURLs;
 
 
     public void addDriver(InternetDriver driver) {

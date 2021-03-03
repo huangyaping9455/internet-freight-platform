@@ -1,7 +1,7 @@
 package com.rising.freight.repository;
 
 import com.rising.common.web.base.BaseRepository;
-import com.rising.freight.domain.ShippingNode;
+import com.rising.freight.domain.InternetShippingNode;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * 日期：2021-01-04
  */
 @Repository
-public interface ShippingNodeRepository extends BaseRepository<ShippingNode,String> {
+public interface ShippingNodeRepository extends BaseRepository<InternetShippingNode,String> {
 
 
 }

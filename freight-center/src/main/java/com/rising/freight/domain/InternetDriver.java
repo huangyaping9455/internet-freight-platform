@@ -32,8 +32,6 @@ public class InternetDriver  extends Model{
 
     private Set<InternetCar> InternetCars = new HashSet<>();
 
-
-    @ApiModelProperty(value = "姓名1..1 an..30必填。对应运单技术规范第 35 项")
     @Comment("司机姓名")
     private String driverName;
 

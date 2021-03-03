@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Comment("资金流水表")
-public class Financial extends Model {
+public class InternetFinancial extends Model {
     private static final long serialVersionUID = 1L;
 
 

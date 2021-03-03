@@ -19,7 +19,7 @@ import java.util.Set;
  * 日期：2020-12-31
  */
 @Entity
-@Table(name = "internet_goods_info")
+@Table(name = "internet_goods")
 @Getter
 @Setter
 @Comment("货物信息")

@@ -22,7 +22,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Comment("财务报表")
-public class FinancialStatement extends Model {
+public class InternetFinancialStatement extends Model {
 
     /**
      * 代码   名 称

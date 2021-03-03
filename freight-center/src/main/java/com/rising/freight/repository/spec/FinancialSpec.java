@@ -2,10 +2,10 @@ package com.rising.freight.repository.spec;
 
 import com.rising.common.support.BaseSpecification;
 import com.rising.common.support.DynamicQueryWrapper;
-import com.rising.freight.domain.Financial;
+import com.rising.freight.domain.InternetFinancial;
 import com.rising.freight.repository.condition.FinacialCondition;
 
-public class FinancialSpec extends BaseSpecification<Financial, FinacialCondition> {
+public class FinancialSpec extends BaseSpecification<InternetFinancial, FinacialCondition> {
     /**
      * 创建：曾庆玲
      * 日期：2021-01-21
@@ -19,7 +19,7 @@ public class FinancialSpec extends BaseSpecification<Financial, FinacialConditio
     }
 
     @Override
-    protected void addCondition(DynamicQueryWrapper<Financial> queryWrapper) {
+    protected void addCondition(DynamicQueryWrapper<InternetFinancial> queryWrapper) {
         addLikeCondition(queryWrapper, "documentNumber");
         addEqualsCondition(queryWrapper, "carrier");
         addEqualsCondition(queryWrapper, "vehicleNumber");

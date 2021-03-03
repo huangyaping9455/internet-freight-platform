@@ -57,9 +57,9 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     public abstract MeetBaseService<T, R, C, ID> getService();
 
     @ResponseResult
-    @GetMapping(value = "/getOneById")
+    @GetMapping(value = "/{id}")
     @ApiOperation(value = "通过id获取")
-    public R getOneById(ID id) throws Exception {
+    public R getOneById(@PathVariable("id") ID id) throws Exception {
         return getService().get(id);
     }
 

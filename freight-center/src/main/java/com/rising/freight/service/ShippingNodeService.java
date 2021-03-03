@@ -2,7 +2,7 @@ package com.rising.freight.service;
 
 import com.rising.common.web.base.BaseService;
 import com.rising.common.web.base.MeetBaseService;
-import com.rising.freight.domain.ShippingNode;
+import com.rising.freight.domain.InternetShippingNode;
 import com.rising.freight.dto.InternetCarDto;
 import com.rising.freight.dto.ShippingNodeDto;
 import com.rising.freight.repository.condition.ShippingNodeCondition;
@@ -14,7 +14,7 @@ import com.rising.freight.repository.condition.ShippingNodeCondition;
  * 作者：李启云
  * 日期：2021-01-12
  */
-public interface ShippingNodeService extends MeetBaseService<ShippingNode, ShippingNodeDto, ShippingNodeCondition, String> {
+public interface ShippingNodeService extends MeetBaseService<InternetShippingNode, ShippingNodeDto, ShippingNodeCondition, String> {
 
 
     /**

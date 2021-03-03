@@ -3,7 +3,7 @@ package com.rising.freight.controller;
 import com.rising.common.web.annotation.ResponseResult;
 import com.rising.common.web.base.BaseController;
 import com.rising.common.web.base.MeetBaseService;
-import com.rising.freight.domain.ShippingNode;
+import com.rising.freight.domain.InternetShippingNode;
 import com.rising.freight.dto.ShippingNodeDto;
 import com.rising.freight.repository.condition.ShippingNodeCondition;
 import com.rising.freight.service.ShippingNodeService;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("internetOrders")
-public class ShippingNodeController extends BaseController<ShippingNode, ShippingNodeDto, ShippingNodeCondition, String> {
+public class ShippingNodeController extends BaseController<InternetShippingNode, ShippingNodeDto, ShippingNodeCondition, String> {
     @Autowired
     private ShippingNodeService shippingNodeService;
 
     @Override
-    public MeetBaseService<ShippingNode, ShippingNodeDto, ShippingNodeCondition, String> getService() {
+    public MeetBaseService<InternetShippingNode, ShippingNodeDto, ShippingNodeCondition, String> getService() {
         return shippingNodeService;
     }
 

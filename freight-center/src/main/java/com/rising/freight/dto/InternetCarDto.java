@@ -25,6 +25,8 @@ import java.util.Set;
 @ApiModel(value = "车辆基础信息传输对象")
 public class InternetCarDto implements Serializable {
     private String id;
+    @ApiModelProperty(value = "公司ID")
+    private String organizationId;
     @ApiModelProperty(value = "车辆的驾驶员列表")
     private Set<InternetDriver> drivers = new HashSet<>();
     @ApiModelProperty(value = "车辆牌照号",required = true)
@@ -59,10 +61,8 @@ public class InternetCarDto implements Serializable {
     private String trailerVehiclePlateNumber;
     @ApiModelProperty(value = "备注")
     private String remark;
-    @ApiModelProperty("行车证url")
-    private String drivingPermitUrl;
-    @ApiModelProperty("驾驶证url")
-    private String driverLicenseUrl;
+    @ApiModelProperty("车辆附件urls")
+    private Set<String> carAttachmentURLs;
 
 
 }
