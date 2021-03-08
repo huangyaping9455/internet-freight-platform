@@ -312,5 +312,5 @@ master-authorize-test/**
 rising-test/**
 rising-price/**
 rising-security/rising-security-browser
-rising-security/rising-security-demo
+rising-security/**
 rising-pay/**
