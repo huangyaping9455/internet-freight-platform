@@ -123,7 +123,7 @@ public abstract class AbstractValidateCodeProcessor<C extends IValidateCode> imp
             throw new ValidateCodeException(codeType + "验证码不存在");
         }
 
-        if (codeInSession.isExpried()) {
+        if (codeInSession.isExpired()) {
             //验证码过期将验证码移出
             validateCodeRepository.remove(request, codeType);
             throw new ValidateCodeException(codeType + "验证码已过期");

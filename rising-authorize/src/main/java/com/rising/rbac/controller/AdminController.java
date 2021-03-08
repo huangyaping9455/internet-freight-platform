@@ -30,7 +30,7 @@ import java.util.List;
  * @author 李启云
  */
 
-@Api(value = "用户Api",tags = "管理员API")
+@Api(value = "用户Api", tags = "管理员API")
 @RestController
 @RequestMapping("/sys/admin")
 public class AdminController extends BaseController {
@@ -49,7 +49,7 @@ public class AdminController extends BaseController {
         info.setOrganizationId(admin.getOrganization().getId());
         info.setOrganizationName(admin.getOrganization().getName());
         OrganizationInfo organizationInfo = new OrganizationInfo();
-        BeanUtils.copyProperties(admin.getOrganization(),organizationInfo);
+        BeanUtils.copyProperties(admin.getOrganization(), organizationInfo);
         info.setOrganization(organizationInfo);
         return info;
     }
@@ -132,9 +132,11 @@ public class AdminController extends BaseController {
         return adminService.query(admin.getUsername(), condition, pageable);
     }
 
+    @ResponseResult
+    @ApiOperation(value = "修改密码")
+    @PostMapping("/{id}/changePassword")
+    public boolean changePassword(@RequestBody AdminInfo adminInfo,@PathVariable("id") Long id) {
+        return adminService.updatePassword(id, adminInfo.getOldPassword(), adminInfo.getNewPassword());
 
-    @ApiOperation(value = "登录")
-    @PostMapping("/authentication/form")
-    public void login(){
     }
 }

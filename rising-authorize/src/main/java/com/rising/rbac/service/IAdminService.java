@@ -61,9 +61,51 @@ public interface IAdminService {
      */
     Page<AdminInfo> query(AdminCondition condition, Pageable pageable);
 
+    /**
+     * 码农：李齐云
+     * 日期：2021-03-04
+     * 描述：查询
+     * <p>
+     * 返回值：{@link Page<AdminInfo> }
+     *
+     * @param username  用户名
+     * @param condition 条件
+     * @param pageable  可分页
+     */
     Page<AdminInfo> query( String username, AdminCondition condition, Pageable pageable);
 
+    /**
+     * 码农：李齐云
+     * 日期：2021-03-04
+     * 描述：删除由ids
+     * <p>
+     * 返回值：
+     *
+     * @param ids id
+     */
     void deleteByIds(List<Long> ids);
 
+    /**
+     * 码农：李齐云
+     * 日期：2021-03-04
+     * 描述：找到的用户名
+     * <p>
+     * 返回值：{@link Admin }
+     *
+     * @param username 用户名
+     */
     Admin findByUsername(String username);
+
+    /**
+     * 码农：李齐云
+     * 日期：2021-03-04
+     * 描述：更新密码
+     * <p>
+     * 返回值：{@link AdminInfo }
+     *  @param id          id
+     * @param password    密码
+     * @param newPassword 新密码
+     * @return
+     */
+    boolean updatePassword(Long id, String password, String newPassword);
 }

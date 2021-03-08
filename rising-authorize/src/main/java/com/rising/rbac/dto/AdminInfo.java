@@ -41,6 +41,8 @@ public class AdminInfo implements Serializable {
     private String name;
     @JsonIgnore
     private String password;
+    private String oldPassword;
+    private String newPassword;
 
     @ApiModelProperty(value = "组织机构ID")
     private Long organizationId;

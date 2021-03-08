@@ -98,7 +98,6 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     @PutMapping("/{id}")
     @ApiOperation(value = "更新数据")
     public R update(@RequestBody R entity, @PathVariable("id") String id) {
-
         return getService().update(entity);
     }
 

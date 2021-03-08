@@ -26,7 +26,7 @@ import java.util.Set;
 
 
 /**
- * 描述：直接复制的图形验证码的校验逻辑----会进行优化
+ * 描述：直接复制的图形验证码的校验逻辑
  * 创建时间：2020-01-31 12:00:00
  * 创建作者：李启云
  */
@@ -95,7 +95,7 @@ public class SmsCodeFilter extends OncePerRequestFilter implements InitializingB
             throw new ValidateCodeException("验证码不存在");
         }
 
-        if (codeInSession.isExpried()) {
+        if (codeInSession.isExpired()) {
             sessionStrategy.removeAttribute(request, ValidateCodeProcessor.SESSION_KEY_PREFIX + "SMS");
             throw new ValidateCodeException("验证码已过期");
         }
