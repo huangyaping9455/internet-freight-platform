@@ -75,7 +75,9 @@ public class GatewaySecurityConfig extends ResourceServerConfigurerAdapter {
                 )
                 .permitAll()
                 .anyRequest()
-                .access("#permissionService.hasPermission(request, authentication)");
+                .access("#permissionService.hasPermission(request, authentication)")
+                .and()
+                .headers().frameOptions().disable();
     }
 
 

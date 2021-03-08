@@ -153,7 +153,7 @@ public class SwaggerConfig implements ApiListingScannerPlugin {
                                 .modelRef(new ModelRef("string"))
                                 .build(),
                         new ParameterBuilder()
-                                .description("验证码唯一标识")
+                                .description("唯一标识")
                                 .type(new TypeResolver().resolve(String.class))
                                 .name("deviceId")
                                 .defaultValue("web")
@@ -174,12 +174,42 @@ public class SwaggerConfig implements ApiListingScannerPlugin {
                 ))
                 .responseMessages(Collections.singleton(
                         new ResponseMessageBuilder().code(200).message("请求成功")
-                               .build()))
+                                .build()))
                 .build();
 
-        ApiDescription loginApiDescription = new ApiDescription("认证请求","/authentication/form",  "登录接口", Arrays.asList(usernamePasswordOperation), false);
+        ApiDescription loginApiDescription = new ApiDescription("认证请求", "/authentication/form", "登录接口", Arrays.asList(usernamePasswordOperation), false);
 
-        return Arrays.asList(loginApiDescription);
+//获取验证码
+        Operation codeOperation = new OperationBuilder(new CachingOperationNameGenerator())
+                .method(HttpMethod.GET)
+                .summary("获取验证码")
+                .notes("获取验证码")
+                .consumes(Sets.newHashSet(MediaType.APPLICATION_FORM_URLENCODED_VALUE)) // 接收参数格式
+                .produces(Sets.newHashSet(MediaType.IMAGE_JPEG_VALUE)) // 返回参数格式
+                .tags(Sets.newHashSet("获取验证码"))
+                .parameters(Arrays.asList(
+
+                        new ParameterBuilder()
+                                .description("唯一标识")
+                                .type(new TypeResolver().resolve(String.class))
+                                .name("deviceId")
+                                .defaultValue("web")
+                                .parameterType("header")
+                                .parameterAccess("access")
+                                .required(true)
+                                .modelRef(new ModelRef("string"))
+                                .build()
+
+                ))
+                .responseMessages(Collections.singleton(
+                        new ResponseMessageBuilder().code(200).message("请求成功")
+                                .build()))
+                .build();
+
+        ApiDescription codeApiDescription = new ApiDescription("验证码", "/code/image", "登录接口", Arrays.asList(codeOperation), false);
+
+
+        return Arrays.asList(loginApiDescription, codeApiDescription);
     }
 
     /**
