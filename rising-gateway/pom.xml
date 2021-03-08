@@ -88,7 +88,6 @@
             <groupId>com.rising</groupId>
             <artifactId>rising-security-core</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <systemPath>${project.basedir}/src/main/resources/lib/rising-security-core-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
 
 

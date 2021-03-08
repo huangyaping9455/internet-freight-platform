@@ -49,14 +49,12 @@
             <groupId>com.rising</groupId>
             <artifactId>rising-security-app</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <systemPath>${project.basedir}/src/main/resources/lib/rising-security-app-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>com.rising</groupId>
             <artifactId>rising-authorize</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <systemPath>${project.basedir}/src/main/resources/lib/rising-authorize-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.rising</groupId>
@@ -86,10 +84,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <!-- 将外部的jar打包到自身jar文件里 -->
-                <configuration>
-                    <includeSystemScope>true</includeSystemScope>
-                </configuration>
+
             </plugin>
 
 
