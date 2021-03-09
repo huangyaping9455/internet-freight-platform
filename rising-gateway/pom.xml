@@ -87,7 +87,7 @@
         <dependency>
             <groupId>com.rising</groupId>
             <artifactId>rising-security-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0.RELEASE</version>
         </dependency>
 
 
@@ -96,6 +96,31 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
     </dependencies>
+
+
+
+    <repositories>
+        <repository>
+            <id>rdc-releases</id>
+            <url>https://packages.aliyun.com/maven/repository/2081810-release-eXGj6C/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>rdc-snapshots</id>
+            <url>https://packages.aliyun.com/maven/repository/2081810-snapshot-MXSVQ4/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
