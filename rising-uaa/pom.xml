@@ -59,7 +59,7 @@
         <dependency>
             <groupId>com.rising</groupId>
             <artifactId>rising-common</artifactId>
-            <version>1.0.0.RELEASE</version>
+            <version>1.0.0.SNAPSHOT</version>
         </dependency>
 
         <dependency>
