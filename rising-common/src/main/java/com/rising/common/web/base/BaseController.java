@@ -28,23 +28,10 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
      * <p> 创建作者：李启云 </p>
      * <p> 修改作者： </p>
      */
-    @ModelAttribute
+    //@ModelAttribute
     protected void setBeforeRequest() {
         //TODO 在每个请求前需要do.....
     }
-
-    /**
-     * 创建：李启云
-     * 日期：2021-01-08
-     * 描述：异常捕获
-     *
-     * @param resultCode 结果代码
-     * @return
-     */
-    protected void cast(IResultCode resultCode) {
-        ExceptionCast.cast(resultCode);
-    }
-
 
     /**
      * 创建：李启云
