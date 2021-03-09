@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * 描述：基本控制器
+ * ResponseResult:自定义的一个注解,封装了返回信息>>详情{@link ResponseResult}
  * T: 数据库实体
  * C：查询条件实体
  * R: 传输实体
@@ -69,7 +70,7 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
     @ResponseResult
     @GetMapping(value = "/getPageByCondition")
     @ApiOperation(value = "分页获取条件查询")
-    public Page<R> getPage(C condition, Integer page,Integer size) {
+    public Page<R> getPage(C condition, Integer page, Integer size) {
         PageRequest pageable = PageRequest.of(page - 1, size);
         return getService().findPageByCondition(condition, pageable);
     }
