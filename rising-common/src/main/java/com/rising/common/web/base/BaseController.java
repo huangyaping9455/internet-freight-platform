@@ -82,7 +82,6 @@ public abstract class BaseController<T, R, C, ID extends Serializable> {
         return getService().save(entity);
     }
 
-    /* "/{id}"*/
     @ResponseResult
     @PutMapping("/{id}")
     @ApiOperation(value = "更新数据")
