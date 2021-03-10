@@ -38,3 +38,25 @@
 
 备注:为了开发规范和代码维护,(baseController,baseService)使用了大量泛型
 ```
+
+##项目异常处理
+```
+查看
+-rising-common---公共工具
+--src
+---web
+----exception
+
+ExceptionCast.ccast方法
+
+```
+
+##项目异常或业务枚举
+```
+可以统一使用
+-rising-common---公共工具
+--src
+---web
+----result
+ResultCode类或者各个模块需要自己的枚举类去实现IResultCode接口
+```

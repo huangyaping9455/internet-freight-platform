@@ -16,7 +16,7 @@ public class RisingException extends RuntimeException {
      * 错误代码
      */
 
-    private IResultCode resultCode;
+    private final IResultCode resultCode;
 
     public RisingException(IResultCode resultCode) {
         this.resultCode = resultCode;
