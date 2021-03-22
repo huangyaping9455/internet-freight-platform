@@ -11,6 +11,14 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 版本：1.0.0
+ * 描述：车辆管理
+ *
+ * @see BaseController
+ * 码农：李齐云
+ * 日期：2021-03-22
+ */
 @RestController
 @RequestMapping("internetCars")
 public class InternetCarController extends BaseController<InternetCar, InternetCarDto, InternetCarCondition, String> {

@@ -10,6 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 版本：1.0.0
+ * 描述：司机管理
+ *
+ * @see BaseController
+ * 码农：李齐云
+ * 日期：2021-03-22
+ */
 @RestController
 @RequestMapping("/internetDrivers")
 public class InternetDriverController extends BaseController<InternetDriver, InternetDriverDto, InternetDriverCondition,String> {

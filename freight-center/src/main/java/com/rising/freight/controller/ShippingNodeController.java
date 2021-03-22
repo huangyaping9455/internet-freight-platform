@@ -13,6 +13,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 版本：1.0.0
+ * 描述：运单管理
+ *
+ * @see BaseController
+ * 码农：李齐云
+ * 日期：2021-03-22
+ */
 @RestController
 @RequestMapping("internetOrders")
 public class ShippingNodeController extends BaseController<InternetShippingNode, ShippingNodeDto, ShippingNodeCondition, String> {
